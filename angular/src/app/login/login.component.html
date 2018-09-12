@@ -1,0 +1,13 @@
+<div id="login_form">
+  <h3>Sign In</h3>
+  <form (submit)="loginSubmit()">
+      <p>Username: </p>
+      <input class="input-section" type="text" name="login.username" autocomplete="off" [(ngModel)]="login.username"/><br>
+      <p>Password: </p>
+      <input class="input-section" type="password" name="login.password" autocomplete="off" [(ngModel)]="login.password"/><br>
+      <input class="submit-button" type="submit">
+  </form>
+</div>
+<div>
+  <p>No Account? Then <a [routerLink]="['/register']">Register</a></p>
+</div>

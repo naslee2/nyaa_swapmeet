@@ -1,0 +1,19 @@
+<div id="navbar">
+  <ul>
+    <li><a [routerLink]="['']">Nyaa Swapmeet</a></li>
+    <li><a [routerLink]="['index']">Database</a></li>
+    <li><a [routerLink]="['listings']">Listings</a></li>
+    <li><a [routerLink]="['dashboard']">Dashboard</a></li>
+    <li class="dropdown">
+        <a [routerLink]="['register']" class="dropbtn">Login/Register</a>
+        <div class="dropdown-content">
+          <a [routerLink]="['login']">Login</a>
+          <a [routerLink]="['register']">Register</a>
+        </div>
+    </li>
+  </ul>
+</div>
+
+<div id="main_component">
+  <router-outlet></router-outlet>
+</div>
