@@ -7,15 +7,26 @@ import { HttpService } from './http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
     private _httpService: HttpService
   ) {}
+  error: any;
 
   ngOnInit() {
     // this._router.navigate(['']);
+    this.sessionCheck();
+  }
+
+  sessionCheck(){
+    let check = this._httpService.checkSession();
+    check.subscribe(data =>{
+      console.log("session check", data);
+    })
   }
   
 }

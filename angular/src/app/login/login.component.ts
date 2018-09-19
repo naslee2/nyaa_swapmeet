@@ -14,16 +14,24 @@ export class LoginComponent implements OnInit {
     private _router: Router,
     private _httpService: HttpService
   ) {}
-
-  login = [];
+  error: any;
+  login: any;
 
   ngOnInit() {
-    this.login = [];
+    this.login = {username: "", password: ""};
   }
 
   loginSubmit(){
-    console.log('username', this.login['username']);
-    console.log('password',this.login['password']);
+    let login = this._httpService.loginUser(this.login);
+    login.subscribe(data =>{
+      if(data['message'] == 'Error'){
+        this.error = data['error']['message']
+      }
+      else{
+        
+        this._router.navigate(['/index']);
+      }
+    })
   }
 
 }

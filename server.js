@@ -1,10 +1,11 @@
 var express = require('express');
+var session = require('express-session')
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose'); 
 var path = require('path');
 var bcrypt =require('bcryptjs')
-var passport = require('passport');
+
 
 app.use(express.static( __dirname + '/angular/dist' ));
 
@@ -20,6 +21,13 @@ mongoose.model('User', UserSchema);
 var User = mongoose.model('User');
 
 app.use(bodyParser.json());
+
+app.use(session({
+    secret: '%FI)J(&#A$FC.N=IUG^%$MHG',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {maxAge: 60000}
+}));
 
 mongoose.connect('mongodb://localhost/user',{useNewUrlParser: true });
 
@@ -59,6 +67,46 @@ app.post('/register', function(request, response){
         });
     }
 });
+
+app.post('/login', function(request, response){
+    console.log("login success!", request.body);
+    var login_pw_data = request.body.password;
+    var login_username = request.body.username;
+    var login_hash = bcrypt.hashSync(request.body.password,12);
+    User.find({username: login_username}, function(error, users){
+        if (error){
+            response.json({message: "Error", error: "User does not exist!"});
+        }
+        else{
+            if(bcrypt.compareSync(login_pw_data, login_hash)){
+                response.json({message: "success!", data: users[0]['_id']});
+                request.session.userid = users[0]['_id'];
+                request.session.username=users[0]['username'];
+                request.session.email=users[0]['email'];
+                request.session.save();
+                console.log(request.session)
+                
+            }
+            else{
+                response.json({message: "Error", error: "Passwords do not match!"});
+            }
+        }
+    })
+})
+
+app.get('/checkSession', function(request, response){
+    console.log("ASAD",request.session);
+    if (request.session){
+        console.log("session check", request.session) 
+        response.json({message: "success!", data: request.session});
+    }
+    else{
+        response.json({message: "Error", error: "session not valid"})
+    }
+})
+
+
+
 
 app.all("*", (req,res,next) => {
     res.sendFile(path.resolve("./angular/dist/index.html"))
