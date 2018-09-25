@@ -26,13 +26,12 @@ app.use(session({
     secret: '%FI)J(&#A$FC.N=IUG^%$MHG',
     resave: false,
     saveUninitialized: true,
-    cookie: {maxAge: 60000}
+    cookie: {maxAge: null}
 }));
 
 mongoose.connect('mongodb://localhost/user',{useNewUrlParser: true });
 
 mongoose.Promise = global.Promise;
-
 
 app.post('/register', function(request, response){
     var reg_pw_data = request.body.password;
@@ -69,7 +68,6 @@ app.post('/register', function(request, response){
 });
 
 app.post('/login', function(request, response){
-    console.log("login success!", request.body);
     var login_pw_data = request.body.password;
     var login_username = request.body.username;
     var login_hash = bcrypt.hashSync(request.body.password,12);
@@ -79,13 +77,12 @@ app.post('/login', function(request, response){
         }
         else{
             if(bcrypt.compareSync(login_pw_data, login_hash)){
-                response.json({message: "success!", data: users[0]['_id']});
                 request.session.userid = users[0]['_id'];
                 request.session.username=users[0]['username'];
                 request.session.email=users[0]['email'];
                 request.session.save();
+                response.json({message: "success!", data: request.session});
                 console.log(request.session)
-                
             }
             else{
                 response.json({message: "Error", error: "Passwords do not match!"});
@@ -93,20 +90,27 @@ app.post('/login', function(request, response){
         }
     })
 })
+ 
+app.get('/logout', function(request, response){
+    if(request.session){
+        request.session.destroy(); 
+        response.json({message: "success!", data: "cookies cleared!"})
+    }
+    else{
+        response.json({message: "Error", data: "cookies unable to be cleared"})
+    }
+    
+    
+})
 
 app.get('/checkSession', function(request, response){
-    console.log("ASAD",request.session);
     if (request.session){
-        console.log("session check", request.session) 
         response.json({message: "success!", data: request.session});
     }
     else{
         response.json({message: "Error", error: "session not valid"})
     }
 })
-
-
-
 
 app.all("*", (req,res,next) => {
     res.sendFile(path.resolve("./angular/dist/index.html"))

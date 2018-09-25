@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
         this.error = data['error']['message']
       }
       else{
-        
-        this._router.navigate(['/index']);
+        this._httpService.loginSet();
+        this._router.navigate(['/dashboard']);
       }
     })
   }

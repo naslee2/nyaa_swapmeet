@@ -3,12 +3,19 @@
     <li><a [routerLink]="['']">Nyaa Swapmeet</a></li>
     <li><a [routerLink]="['index']">Database</a></li>
     <li><a [routerLink]="['listings']">Listings</a></li>
-    <li><a [routerLink]="['dashboard']">Dashboard</a></li>
-    <li class="dropdown">
+    
+    <li *ngIf="!sessioncheck" class="dropdown">
         <a [routerLink]="['register']" class="dropbtn">Login/Register</a>
         <div class="dropdown-content">
           <a [routerLink]="['login']">Login</a>
           <a [routerLink]="['register']">Register</a>
+        </div>
+    </li>
+    <li *ngIf="sessioncheck" class="dropdown">
+        <a [routerLink]="['dashboard']" class="dropbtn">Welcome, {{sessionData.username}}!</a>
+        <div class="dropdown-content">
+          <a [routerLink]="['dashboard']">Dashboard</a>
+          <a (click)="logout()">Log Out</a>
         </div>
     </li>
   </ul>
