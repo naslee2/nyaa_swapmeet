@@ -5,14 +5,15 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class HttpService {
-
+  sessiondata: any;
   constructor(
     private _http: HttpClient
   ) { 
-
+    this.loginSet();
   }
 
-  public isLogin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  // public isLogin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public isLogin: BehaviorSubject<any> = new BehaviorSubject<any>(this.sessiondata);
   cast = this.isLogin.asObservable();
 
 
@@ -29,7 +30,11 @@ export class HttpService {
   }
 
   loginSet(){
-    this.isLogin.next(true);
+    var tester = this._http.get('/session');
+    tester.subscribe(data =>{
+      this.sessiondata = data;
+      this.isLogin.next(this.sessiondata);
+    })
   }
 
   logoutUser(){

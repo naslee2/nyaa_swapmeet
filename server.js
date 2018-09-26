@@ -90,7 +90,11 @@ app.post('/login', function(request, response){
         }
     })
 })
- 
+
+app.get("/session", function(request, response){
+    response.json({message: "Success", data: request.session}); 
+})
+
 app.get('/logout', function(request, response){
     if(request.session){
         request.session.destroy(); 

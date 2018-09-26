@@ -21,15 +21,36 @@ export class AppComponent implements OnInit {
   ) {}
   
   ngOnInit() {
-    // this._router.navigate(['']);
-    // this.sessionCheck();
     this.login();
-
   }
 
   login(){
     this.loginChecker.cast.subscribe(data => {
-      this.sessionCheck();
+      // console.log("???", data)
+      if (data){
+        if (data['data']['mail'] || data['data']['username'] || data['data']['userid']){ //why does this work?
+          this.sessionData = data['data'];
+          this.sessioncheck= true;
+          // console.log("login", this.sessionData['email'])
+        }
+      }
+      else{
+        this.sessioncheck= false;
+        // console.log("haha")
+      }
+
+      //does not work
+      // console.log("???", data)
+      // this.sessionData = data;
+      // if(this.sessionData['data']['email']){
+      //   this.sessioncheck= true;
+      //   console.log("login", this.sessionData['data']['email'])
+      // }
+      // else{
+      //   this.sessioncheck= false;
+      //   console.log("haha")
+      // }
+
     })
   }
 
@@ -37,20 +58,8 @@ export class AppComponent implements OnInit {
     this.sessioncheck= false;
     let setLogout = this._httpService.logoutUser();
     setLogout.subscribe(data => {
+      console.log("logout", data)
       this._router.navigate(['/']);
-    })
-  }
-  
-  sessionCheck(){
-    let check = this._httpService.checkSession();
-    check.subscribe(data =>{
-      if (data['data']['email']){
-        this.sessionData = data['data'];
-        this.sessioncheck = true;
-      }
-      else{
-        this.sessioncheck= false;
-      }
     })
   }
   
