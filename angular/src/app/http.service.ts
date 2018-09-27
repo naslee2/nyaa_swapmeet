@@ -17,19 +17,19 @@ export class HttpService {
   cast = this.isLogin.asObservable();
 
 
-  registerUser(user){
+  registerUser(user){ //registers user
     return this._http.post('/register', {username: user.username, email: user.email, password: user.reg_password, check_password: user.check_password});
   }
 
-  loginUser(user2){
+  loginUser(user2){ //login user
     return this._http.post('/login', {username: user2.username, password: user2.password})
   }
 
-  checkSession(){
+  checkSession(){ //checks user session
     return this._http.get('/checkSession');
   }
 
-  loginSet(){
+  loginSet(){ //send user request.session data to listeners
     var tester = this._http.get('/session');
     tester.subscribe(data =>{
       this.sessiondata = data;
@@ -37,7 +37,7 @@ export class HttpService {
     })
   }
 
-  logoutUser(){
+  logoutUser(){ //logs user out
     return this._http.get('/logout');
   }
 

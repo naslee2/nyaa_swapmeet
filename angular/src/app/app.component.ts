@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
     this.sessioncheck= false;
     let setLogout = this._httpService.logoutUser();
     setLogout.subscribe(data => {
-      console.log("logout", data)
+      // console.log("logout", data)
       this._router.navigate(['/']);
     })
   }

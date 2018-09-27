@@ -33,7 +33,7 @@ mongoose.connect('mongodb://localhost/user',{useNewUrlParser: true });
 
 mongoose.Promise = global.Promise;
 
-app.post('/register', function(request, response){
+app.post('/register', function(request, response){ //registers user
     var reg_pw_data = request.body.password;
     var reg_email_data = request.body.email;
     var reg_username = request.body.username;
@@ -67,7 +67,7 @@ app.post('/register', function(request, response){
     }
 });
 
-app.post('/login', function(request, response){
+app.post('/login', function(request, response){ //logins user and saves to mongodb
     var login_pw_data = request.body.password;
     var login_username = request.body.username;
     var login_hash = bcrypt.hashSync(request.body.password,12);
@@ -91,11 +91,11 @@ app.post('/login', function(request, response){
     })
 })
 
-app.get("/session", function(request, response){
+app.get("/session", function(request, response){ //sends request.session data
     response.json({message: "Success", data: request.session}); 
 })
 
-app.get('/logout', function(request, response){
+app.get('/logout', function(request, response){ //deletes request.session data
     if(request.session){
         request.session.destroy(); 
         response.json({message: "success!", data: "cookies cleared!"})
@@ -107,7 +107,7 @@ app.get('/logout', function(request, response){
     
 })
 
-app.get('/checkSession', function(request, response){
+app.get('/checkSession', function(request, response){ //sends data for any request.session users.
     if (request.session){
         response.json({message: "success!", data: request.session});
     }
