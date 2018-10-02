@@ -34,12 +34,16 @@ mongoose.connect('mongodb://localhost/user',{useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 app.post('/register', function(request, response){ //registers user
+    var regex= /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
     var reg_pw_data = request.body.password;
     var reg_email_data = request.body.email;
     var reg_username = request.body.username;
     var reg_pw_check = request.body.check_password
     if (reg_username < 3){
         response.json({message: "Error", error: {message: "Username must be 4 characters long or more!", name: "ValidationError"}})
+    }
+    else if (regex.test(reg_email_data) == false){
+        response.json({message: "Error", error: {message: "Email is invalid!", name: "ValidationError"}})
     }
     else if (reg_pw_data.length < 7){
         response.json({message: "Error", error: {message: "Password must be 8 characters long or more!", name: "ValidationError"}})
@@ -82,7 +86,7 @@ app.post('/login', function(request, response){ //logins user and saves to mongo
                 request.session.email=users[0]['email'];
                 request.session.save();
                 response.json({message: "success!", data: request.session});
-                console.log(request.session)
+                // console.log(request.session)
             }
             else{
                 response.json({message: "Error", error: "Passwords do not match!"});
