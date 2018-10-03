@@ -22,17 +22,22 @@ export class RegisterComponent implements OnInit {
   }
 
   registerSubmit(){
-    console.log("component work",this.register);
     let reg = this._httpService.registerUser(this.register);
       reg.subscribe(data =>{
-        if(data['error']['code'] == 11000){
-          this.error = data['error']['errmsg']
+        console.log("sdf", data)
+        if(data['message'] == 'success!'){
+          this.error = "Successfully registered!"
         }
         else if(data['message'] == 'Error'){
-          this.error = data['error']['message']
+          if (data['error']['code']){
+            this.error = data['error']['errmsg']
+          }
+          else{
+            this.error = data['error']['message']
+          }
         }
         else{
-          console.log("catsddsd", data);
+          console.log("hahah", data)
         }
       });
   }

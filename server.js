@@ -6,7 +6,6 @@ var mongoose = require('mongoose');
 var path = require('path');
 var bcrypt =require('bcryptjs')
 
-
 app.use(express.static( __dirname + '/angular/dist' ));
 
 var UserSchema = new mongoose.Schema({
