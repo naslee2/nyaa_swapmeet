@@ -25,15 +25,19 @@ export class DashboardComponent implements OnInit {
   }
 
   login(){
-    this.loginChecker.cast.subscribe(data => {
+    this.loginChecker.cast.subscribe(data => { 
+
       if (data){
-        if (data['data']['mail'] || data['data']['username'] || data['data']['userid']){ //why does this work?
+        // console.log(data)
+        if (data['data']['email'] && data['data']['username'] && data['data']['userid']){ //why does this work?
+          // console.log("wow", data);
           this.sessionData = data['data'];
           this.sessioncheck= true;
-          // console.log("login", this.sessionData['email'])
+          this._router.navigate(['/dashboard']);
         }
         else{
           this.sessioncheck= false;
+          // console.log("lol")
           this._router.navigate(['/']);
         }
       }
@@ -42,6 +46,24 @@ export class DashboardComponent implements OnInit {
         this._router.navigate(['/']);
         // console.log("haha")
       }
+
+      // if(data == "undefined"){
+      //   this.sessioncheck= false;
+      //   console.log("Rofl")
+      //   this._router.navigate(['/']);
+      // }
+      // else if (!data['data']['email'] && !data['data']['username'] && !data['data']['userid']){ //why does this work?
+      //   this.sessioncheck= false;
+      //   console.log("lol")
+      //   this._router.navigate(['/']);
+      // }
+      // else{
+      //   console.log("wow", data)
+      //   this.sessionData = data['data'];
+      //   this.sessioncheck= true;
+      //   this._router.navigate(['/dashboard']);
+      // } 
+
     })
   }
 
