@@ -26,7 +26,10 @@ export class RegisterComponent implements OnInit {
       reg.subscribe(data =>{
         console.log("sdf", data)
         if(data['message'] == 'success!'){
-          this.error = "Successfully registered!"
+          this.error = "Successfully registered! Redirecting to Login in 10 seconds."
+          setTimeout(() =>{
+            this._router.navigate(['/login']);
+          }, 10000)
         }
         else if(data['message'] == 'Error'){
           if (data['error']['code']){
