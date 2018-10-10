@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     let login = this._httpService.loginUser(this.login);
     login.subscribe(data =>{
       if(data['message'] == 'Error'){
-        this.error = data['error']['message']
+        this.error = data['error']
       }
       else{
         this._httpService.loginSet();

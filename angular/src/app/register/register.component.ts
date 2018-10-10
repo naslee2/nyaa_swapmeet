@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   registerSubmit(){
     let reg = this._httpService.registerUser(this.register);
       reg.subscribe(data =>{
-        console.log("sdf", data)
+        // console.log("sdf", data)
         if(data['message'] == 'success!'){
           this.error = "Successfully registered! Redirecting to Login in 10 seconds."
           setTimeout(() =>{
@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
           }
         }
         else{
-          console.log("hahah", data)
+          this.error = "Unknown Error!"
         }
       });
   }

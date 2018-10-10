@@ -73,23 +73,26 @@ app.post('/register', function(request, response){ //registers user
 app.post('/login', function(request, response){ //logins user and saves to mongodb
     var login_pw_data = request.body.password;
     var login_username = request.body.username;
-    var login_hash = bcrypt.hashSync(request.body.password,12);
     User.find({username: login_username}, function(error, users){
         if (error){
-            response.json({message: "Error", error: "User does not exist!"});
+            response.json({message: "Error", error: "Database error"});
+            // console.log(error);
         }
-        else{
-            if(bcrypt.compareSync(login_pw_data, login_hash)){
+        if (users.length > 0){
+            var pw_compare = bcrypt.compareSync(login_pw_data, users[0]['password']);
+            if(pw_compare){
                 request.session.userid = users[0]['_id'];
                 request.session.username=users[0]['username'];
                 request.session.email=users[0]['email'];
                 request.session.save();
                 response.json({message: "success!", data: request.session});
-                // console.log(request.session)
             }
             else{
                 response.json({message: "Error", error: "Passwords do not match!"});
             }
+        }
+        else{
+            response.json({message: "Error", error: "User does not exist!"});
         }
     })
 })
