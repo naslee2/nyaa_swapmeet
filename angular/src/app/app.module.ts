@@ -16,6 +16,11 @@ import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ListingsComponent } from './listings/listings.component';
+import { AddlistingComponent } from './addlisting/addlisting.component';
+import { AddcollectionComponent } from './addcollection/addcollection.component';
+import { EditlistingComponent } from './editlisting/editlisting.component';
+import { EditcollectionComponent } from './editcollection/editcollection.component';
+import { DbcontrolComponent } from './dbcontrol/dbcontrol.component';
 
 
 @NgModule({
@@ -26,7 +31,12 @@ import { ListingsComponent } from './listings/listings.component';
     IndexComponent,
     LoginComponent,
     RegisterComponent,
-    ListingsComponent
+    ListingsComponent,
+    AddlistingComponent,
+    AddcollectionComponent,
+    EditlistingComponent,
+    EditcollectionComponent,
+    DbcontrolComponent,
   ],
   imports: [
     BrowserModule,

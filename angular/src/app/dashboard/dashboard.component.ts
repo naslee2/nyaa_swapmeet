@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
     this.loginChecker.cast.subscribe(data => { 
 
       if (data){
-        // console.log(data)
+        console.log(data)
         if (data['data']['email'] && data['data']['username'] && data['data']['userid']){ //why does this work?
           // console.log("wow", data);
           this.sessionData = data['data'];

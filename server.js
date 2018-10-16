@@ -15,6 +15,21 @@ var UserSchema = new mongoose.Schema({
     usertype: {type: Number, default: 1}
 }, {timestamps: true});
 
+var FigureDataSchema = new mongoose.Schema({
+    name: {type: String, required: true},
+    releasedate: {type: Date, required: true},
+    announcedate: {type: Date, required: true},
+    brand: {type: String, required: true},
+    series: {type: String, required: true},
+    number: {type: Number},
+    manufacturer: {type: String},
+    distributor: {type: String},
+    releaseprice: {type: String},
+    currencytype: {type: String, default: "USD"},
+    notes: {type: String},
+    picture: {type: Array},
+},{timestamps: true});
+
 mongoose.model('User', UserSchema);
 
 var User = mongoose.model('User');
@@ -84,6 +99,7 @@ app.post('/login', function(request, response){ //logins user and saves to mongo
                 request.session.userid = users[0]['_id'];
                 request.session.username=users[0]['username'];
                 request.session.email=users[0]['email'];
+                request.session.usertype=users[0]['usertype'];
                 request.session.save();
                 response.json({message: "success!", data: request.session});
             }
