@@ -15,10 +15,10 @@ var UserSchema = new mongoose.Schema({
     usertype: {type: Number, default: 1}
 }, {timestamps: true});
 
-var FigureDataSchema = new mongoose.Schema({
+var FiguredataSchema = new mongoose.Schema({
     name: {type: String, required: true},
     releasedate: {type: Date, required: true},
-    announcedate: {type: Date, required: true},
+    announcedate: {type: Date},
     brand: {type: String, required: true},
     series: {type: String, required: true},
     number: {type: Number},
@@ -27,12 +27,14 @@ var FigureDataSchema = new mongoose.Schema({
     releaseprice: {type: String},
     currencytype: {type: String, default: "USD"},
     notes: {type: String},
-    picture: {type: Array},
+    pictures: {type: Array},
 },{timestamps: true});
 
-mongoose.model('User', UserSchema);
+mongoose.model('User', UserSchema, 'users');
+mongoose.model('Figuredata', FiguredataSchema, 'figures')
 
 var User = mongoose.model('User');
+var Figuredata = mongoose.model('Figuredata')
 
 app.use(bodyParser.json());
 

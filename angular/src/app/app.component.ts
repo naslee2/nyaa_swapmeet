@@ -26,12 +26,11 @@ export class AppComponent implements OnInit {
 
   login(){
     this.loginChecker.cast.subscribe(data => {
-      // console.log("???", data)
       if (data){
         if (data['data']['mail'] || data['data']['username'] || data['data']['userid']){ //why does this work?
           this.sessionData = data['data'];
           this.sessioncheck= true;
-          // console.log("login", this.sessionData['email'])
+          console.log("login", this.sessionData)
         }
       }
       else{
