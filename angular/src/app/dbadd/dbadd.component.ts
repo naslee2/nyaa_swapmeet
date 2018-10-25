@@ -58,6 +58,8 @@ export class DbaddComponent implements OnInit {
     })
   }
 
-  
+  addSubmit(){
+    console.log("ha")
+  }
 
 }

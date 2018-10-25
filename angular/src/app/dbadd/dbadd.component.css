@@ -7,3 +7,9 @@ form{
     width: 500px;
     height: 20px;
 }
+
+.helpful-tips{
+    vertical-align: top;
+    height: 300px;
+    width: 300px;
+}

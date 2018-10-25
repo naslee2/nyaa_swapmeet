@@ -12,7 +12,7 @@ var UserSchema = new mongoose.Schema({
     username: {type: String, required: true, minlength: 3, unique: true},
     email: {type: String, unique: true, required: true, unique: true},
     password: {type: String, required: true, minlength: 7},
-    usertype: {type: Number, default: 1}
+    usertype: {type: Number, default: 2}
 }, {timestamps: true});
 
 var FiguredataSchema = new mongoose.Schema({

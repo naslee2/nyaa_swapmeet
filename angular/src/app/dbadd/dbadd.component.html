@@ -1,33 +1,34 @@
 <div>
-
-</div>
-<div>
     <h3>Add a new figure to database</h3>
-    <form autocomplete="off">
+    <form autocomplete="off" (submit)="addSubmit()">
         <p>Name</p>
-        <input class="input-section" type="text" name="" autocomplete=""/><br>
+        <input class="input-section" type="text" name="add.name" autocomplete=""/><br>
         <p>Release Date</p>
-        <input class="input-section" type="date" name="" autocomplete="" /><br>
+        <input class="input-section" type="date" name="add.rdate" autocomplete="" /><br>
         <p>Announce Date</p>
-        <input class="input-section" type="date" name="" autocomplete="" /><br>
+        <input class="input-section" type="date" name="add.adate" autocomplete="" /><br>
         <p>Brand</p>
-        <input class="input-section" type="text" name="" autocomplete="" /><br>
+        <input class="input-section" type="text" name="add.brand" autocomplete="" /><br>
         <p>Series</p>
-        <input class="input-section" type="text" name="" autocomplete="" /><br>
+        <input class="input-section" type="text" name="add.series" autocomplete="" /><br>
         <p>Number</p>
-        <input class="input-section" type="number" name="" autocomplete=""/><br>
+        <input class="input-section" type="number" name="add.number" autocomplete=""/><br>
         <p>Manufacturer</p>
-        <input class="input-section" type="text" name="" autocomplete="" /><br>
+        <input class="input-section" type="text" name="add.manufacturer" autocomplete="" /><br>
         <p>Distributor</p>
-        <input class="input-section" type="text" name="" autocomplete="" /><br>
+        <input class="input-section" type="text" name="add.distributor" autocomplete="" /><br>
         <p>Release Price</p>
-        <input class="input-section" type="text" name="" autocomplete="" /><br>
+        <input class="input-section" type="number" min="0.00" step=0.01 name="add.price" autocomplete="" /><br>
         <p>Currency</p>
-        <input class="input-section" type="text" name="" autocomplete="" /><br>
+        <input class="input-section" type="text" name="add.currency" autocomplete="" /><br>
         <p>Notes</p>
-        <input class="input-section" type="text" name="" autocomplete=""/><br>
+        <input class="input-section" type="text" name="add.notes" autocomplete=""/><br>
         <p>Upload Picture</p>
         <input type="file" name="pic" accept="image/*"><br>
         <input class="submit-button" type="submit">
     </form>
+</div>
+
+<div class="helpful-tips">
+
 </div>
