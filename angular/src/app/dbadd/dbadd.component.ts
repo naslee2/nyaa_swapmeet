@@ -3,14 +3,15 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { HttpService } from '../http.service';
 
 @Component({
-  selector: 'app-dbcontrol',
-  templateUrl: './dbcontrol.component.html',
-  styleUrls: ['./dbcontrol.component.css']
+  selector: 'app-dbadd',
+  templateUrl: './dbadd.component.html',
+  styleUrls: ['./dbadd.component.css']
 })
-export class DbcontrolComponent implements OnInit {
+export class DbaddComponent implements OnInit {
   error: any;
   sessionData: any;
   sessioncheck: any;
+  newdata: any;
 
   constructor(
     private _router: Router,
@@ -21,6 +22,17 @@ export class DbcontrolComponent implements OnInit {
   ngOnInit() {
     this.sessionData = {};
     this.login();
+    this.newdata = {
+      name: "", 
+      releasedate: "", 
+      announcedate: "",
+      brand: "",
+      series: "",
+      number: "",
+      manufacturer: "",
+      distributor: "",
+      releaseprice: ""
+    }   
   }
 
   login(){

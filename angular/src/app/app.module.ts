@@ -20,7 +20,9 @@ import { AddlistingComponent } from './addlisting/addlisting.component';
 import { AddcollectionComponent } from './addcollection/addcollection.component';
 import { EditlistingComponent } from './editlisting/editlisting.component';
 import { EditcollectionComponent } from './editcollection/editcollection.component';
-import { DbcontrolComponent } from './dbcontrol/dbcontrol.component';
+import { DbaddComponent } from './dbadd/dbadd.component';
+import { DbeditComponent } from './dbedit/dbedit.component';
+import { DbprofileComponent } from './dbprofile/dbprofile.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { DbcontrolComponent } from './dbcontrol/dbcontrol.component';
     AddcollectionComponent,
     EditlistingComponent,
     EditcollectionComponent,
-    DbcontrolComponent,
+    DbaddComponent,
+    DbeditComponent,
+    DbprofileComponent,
   ],
   imports: [
     BrowserModule,
