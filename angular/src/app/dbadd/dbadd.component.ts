@@ -11,7 +11,7 @@ export class DbaddComponent implements OnInit {
   error: any;
   sessionData: any;
   sessioncheck: any;
-  newdata: any;
+  add: any;
 
   constructor(
     private _router: Router,
@@ -22,16 +22,18 @@ export class DbaddComponent implements OnInit {
   ngOnInit() {
     this.sessionData = {};
     this.login();
-    this.newdata = {
+    this.add = {
       name: "", 
-      releasedate: "", 
-      announcedate: "",
+      rdate: "", 
+      adate: "",
       brand: "",
       series: "",
       number: "",
       manufacturer: "",
       distributor: "",
-      releaseprice: ""
+      rprice: "",
+      currency: "",
+      notes: "",
     }   
   }
 
@@ -59,7 +61,7 @@ export class DbaddComponent implements OnInit {
   }
 
   addSubmit(){
-    console.log("ha")
+    console.log("ha", this.add)
   }
 
 }

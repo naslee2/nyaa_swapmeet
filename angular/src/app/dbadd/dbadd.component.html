@@ -2,29 +2,51 @@
     <h3>Add a new figure to database</h3>
     <form autocomplete="off" (submit)="addSubmit()">
         <p>Name</p>
-        <input class="input-section" type="text" name="add.name" autocomplete=""/><br>
+        <input class="input-section" type="text" name="add.name" autocomplete="off" [(ngModel)]="add.name" /><br>
+
         <p>Release Date</p>
-        <input class="input-section" type="date" name="add.rdate" autocomplete="" /><br>
+        <input class="input-section" type="date" name="add.rdate" autocomplete="off" [(ngModel)]="add.rdate"/><br>
+
         <p>Announce Date</p>
-        <input class="input-section" type="date" name="add.adate" autocomplete="" /><br>
+        <input class="input-section" type="date" name="add.adate" autocomplete="off" [(ngModel)]="add.adate"/><br>
+
         <p>Brand</p>
-        <input class="input-section" type="text" name="add.brand" autocomplete="" /><br>
+        <input class="input-section" type="text" name="add.brand" autocomplete="off" [(ngModel)]="add.brand"/><br>
+
         <p>Series</p>
-        <input class="input-section" type="text" name="add.series" autocomplete="" /><br>
+        <input class="input-section" type="text" name="add.series" autocomplete="off" [(ngModel)]="add.series"/><br>
+
         <p>Number</p>
-        <input class="input-section" type="number" name="add.number" autocomplete=""/><br>
+        <input class="input-section" type="number" name="add.number" autocomplete="off" [(ngModel)]="add.number"/><br>
+
         <p>Manufacturer</p>
-        <input class="input-section" type="text" name="add.manufacturer" autocomplete="" /><br>
+        <input class="input-section" type="text" name="add.manufacturer" autocomplete="off" [(ngModel)]="add.manufacturer"/><br>
+
         <p>Distributor</p>
-        <input class="input-section" type="text" name="add.distributor" autocomplete="" /><br>
+        <input class="input-section" type="text" name="add.distributor" autocomplete="off" [(ngModel)]="add.distributor"/><br>
+
         <p>Release Price</p>
-        <input class="input-section" type="number" min="0.00" step=0.01 name="add.price" autocomplete="" /><br>
+        <input class="input-section" type="number" min="0.00" step=0.01 name="add.rprice" autocomplete="off" [(ngModel)]="add.rprice"/><br>
+
         <p>Currency</p>
-        <input class="input-section" type="text" name="add.currency" autocomplete="" /><br>
+        <select class="input-section" name="add.currency" autocomplete="off" [(ngModel)]="add.currency">
+            <option value="&#x24; USD">&#x24; USD</option>
+            <option value="&#xa5; JPY">&#xa5; JPY</option>
+            <option value="&#x20AC; EUR">&#x20AC; EUR</option>
+            <option value="&#x24; AUD">&#x24; AUD</option>
+            <option value="&#x24; CAD">&#x24; CAD</option>
+            <option value="&#xa3; GBP">&#xa3; GBP</option>
+            <option value="&#x24; HKD">&#x24; HKD</option>
+            <option value="&#x20A9; KRW">&#x20A9; KRW</option>
+            <option value="&#x24; SGD">&#x24; SGD</option>
+            <option value="&#x24; NTD">&#x24; NTD</option>
+        </select><br>
+        
         <p>Notes</p>
-        <input class="input-section" type="text" name="add.notes" autocomplete=""/><br>
-        <p>Upload Picture</p>
-        <input type="file" name="pic" accept="image/*"><br>
+        <input class="input-section" type="text" name="add.notes" autocomplete="off" [(ngModel)]="add.notes" /><br>
+
+        <!-- <p>Upload Picture</p>
+        <input type="file" name="pic" accept="image/*"><br> -->
         <input class="submit-button" type="submit">
     </form>
 </div>
