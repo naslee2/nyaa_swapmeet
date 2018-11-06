@@ -41,4 +41,8 @@ export class HttpService {
     return this._http.get('/logout');
   }
 
+  addFigure(add){
+    console.log(add);
+  }
+
 }

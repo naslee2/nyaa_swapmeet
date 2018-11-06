@@ -61,7 +61,7 @@ export class DbaddComponent implements OnInit {
   }
 
   addSubmit(){
-    console.log("ha", this.add)
+    let sub = this._httpService.addFigure(this.add);
   }
 
 }

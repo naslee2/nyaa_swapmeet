@@ -8,8 +8,15 @@ form{
     height: 20px;
 }
 
-.helpful-tips{
+#helpful-tips{
     vertical-align: top;
+    display: inline-block;
     height: 300px;
     width: 300px;
+    
 }
+
+#input-div{
+    display: inline-block;
+}
+
