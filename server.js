@@ -107,6 +107,7 @@ app.post('/login', function(request, response){ //logins user and saves to mongo
             }
             else{
                 response.json({message: "Error", error: "Passwords do not match!"});
+                console.log("woah")
             }
         }
         else{
@@ -115,7 +116,13 @@ app.post('/login', function(request, response){ //logins user and saves to mongo
     })
 })
 
-app.get("/session", function(request, response){ //sends request.session data
+app.post('/add', function(request, response){ //observables inherently lazy, use subscribe
+    console.log("nope")
+    console.log(request.body);
+    response.json({message: "Success", data: "test"});
+})
+
+app.get('/session', function(request, response){ //sends request.session data
     response.json({message: "Success", data: request.session}); 
 })
 
