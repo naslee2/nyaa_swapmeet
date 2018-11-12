@@ -117,8 +117,17 @@ app.post('/login', function(request, response){ //logins user and saves to mongo
 })
 
 app.post('/add', function(request, response){ //observables inherently lazy, use subscribe
-    console.log("nope")
-    console.log(request.body);
+    var name = request.body.name;
+    var releasedate = request.body.releasedate;
+    var announcedate = request.body.announcedate;
+    var brand = request.body.brand;
+    var series = request.body.series;
+    var manufacturer = request.body.manufacturer;
+    var distributor = request.body.distributor;
+    var releaseprice = request.body.releaseprice;
+    var currencytype = request.body.currencytype;
+    var notes = request.body.notes;
+    
     response.json({message: "Success", data: "test"});
 })
 
