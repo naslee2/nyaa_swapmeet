@@ -15,7 +15,7 @@
         <a [routerLink]="['dashboard']" class="dropbtn">Welcome, {{sessionData.username}}!</a>
         <div *ngIf="sessionData.usertype == 2" class="dropdown-content">
           <a [routerLink]="['dashboard']">Dashboard</a>
-          <a [routerLink]="['database']">Database Control</a>  
+          <a [routerLink]="['databaseadd']">Add to Database</a>  
           <a (click)="logout()">Log Out</a>
         </div>
         <div *ngIf="sessionData.usertype != 2" class="dropdown-content">

@@ -44,7 +44,7 @@ export class DbaddComponent implements OnInit {
           // console.log("wow", data);
           this.sessionData = data['data'];
           this.sessioncheck= true;
-          this._router.navigate(['/database']);
+          this._router.navigate(['/databaseadd']);
         }
         else{
           this.sessioncheck= false;
@@ -63,7 +63,16 @@ export class DbaddComponent implements OnInit {
   addSubmit(){
     let sub = this._httpService.addFigure(this.add);
       sub.subscribe(data =>{
-        console.log("new",data)
+        if(data['message'] == 'success!'){
+          this.error = "Database updated Successfully!"
+        }
+        else if(data['message'] == 'Error'){
+          this.error = "Database update failed!"
+        }
+        else{
+          console.log("unknown error")
+          this.error = "Database update failed!"
+        }
       })
   }
 

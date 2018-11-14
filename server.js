@@ -122,13 +122,38 @@ app.post('/add', function(request, response){ //observables inherently lazy, use
     var announcedate = request.body.announcedate;
     var brand = request.body.brand;
     var series = request.body.series;
+    var number = request.body.number;
     var manufacturer = request.body.manufacturer;
     var distributor = request.body.distributor;
     var releaseprice = request.body.releaseprice;
     var currencytype = request.body.currencytype;
     var notes = request.body.notes;
-    
-    response.json({message: "Success", data: "test"});
+
+    var newfigure = new Figuredata(
+        {
+        name: name,
+        releasedate: releasedate,
+        announcedate: announcedate,
+        brand: brand,
+        series: series,
+        number: number,
+        manufacturer: manufacturer,
+        distributor: distributor,
+        releaseprice: releaseprice,
+        currencytype: currencytype,
+        notes: notes
+        }
+    )
+    newfigure.save(function(error){
+        if(error){
+            response.json({message: "Error", error: error});
+        }
+        else{
+            response.json({message: "success!", data: add});
+        }
+    });
+
+    response.json({message: "success!", data: "test"});
 })
 
 app.get('/session', function(request, response){ //sends request.session data

@@ -58,4 +58,9 @@ export class HttpService {
     });
   }
 
+  getFigures(){
+    // return this._http.get('/getFigures');
+    console.log("active")
+  }
+
 }
