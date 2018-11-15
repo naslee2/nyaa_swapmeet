@@ -8,6 +8,7 @@ import { HttpService } from '../http.service';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+  figureData: any;
 
   constructor(
     private _route: ActivatedRoute,
@@ -21,16 +22,10 @@ export class IndexComponent implements OnInit {
   
   showFigures(){
     let x = this._httpService.getFigures();
-    // x.subscribe(data => {
-    //   console.log("all data", data)
-    // })
+    x.subscribe(data => {
+      this.figureData = data['data']
+      console.log("all data", this.figureData)
+    })
   }
 
-  figureDetails(){
-
-  }
-
-  figureEdit(){
-
-  }
 }

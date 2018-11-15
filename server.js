@@ -160,6 +160,17 @@ app.get('/session', function(request, response){ //sends request.session data
     response.json({message: "Success", data: request.session}); 
 })
 
+app.get('/getFigures', function(request, response){
+    Figuredata.find({}, null, {sort: 'number'}, function(err, task){
+        if(err){
+            response.json({message: "Error", error: err});
+        }
+        else{
+            response.json({message: "success", data: task});
+        }
+    })
+})
+
 app.get('/logout', function(request, response){ //deletes request.session data
     if(request.session){
         request.session.destroy(); 
