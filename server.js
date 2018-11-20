@@ -117,6 +117,7 @@ app.post('/login', function(request, response){ //logins user and saves to mongo
 })
 
 app.post('/add', function(request, response){ //observables inherently lazy, use subscribe
+    console.log("haha");
     var name = request.body.name;
     var releasedate = request.body.releasedate;
     var announcedate = request.body.announcedate;
@@ -149,10 +150,9 @@ app.post('/add', function(request, response){ //observables inherently lazy, use
             response.json({message: "Error", error: error});
         }
         else{
-            response.json({message: "success!", data: add});
+            response.json({message: "success!", data: newfigure});
         }
     });
-
     response.json({message: "success!", data: "test"});
 })
 
@@ -167,6 +167,18 @@ app.get('/getFigures', function(request, response){
         }
         else{
             response.json({message: "success", data: task});
+        }
+    })
+})
+
+app.get('/getFigureProfile/:id', function(request, response){
+    Figuredata.findOne({_id: request.params.id}, function(err, figure){
+        console.log("lolol",request.params.id)
+        if(err){
+            response.json({message: "Error", error: err});
+        }
+        else{
+            response.json({message: "success", data: figure});
         }
     })
 })

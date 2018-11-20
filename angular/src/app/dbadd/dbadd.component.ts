@@ -37,7 +37,7 @@ export class DbaddComponent implements OnInit {
     }   
   }
 
-  login(){
+  login(){ // login checker
     this.loginChecker.cast.subscribe(data => { 
       if (data){
         if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){ //why does this work?
@@ -61,7 +61,9 @@ export class DbaddComponent implements OnInit {
   }
 
   addSubmit(){
+    console.log("haha")
     let sub = this._httpService.addFigure(this.add);
+    console.log("la",sub);
       sub.subscribe(data =>{
         if(data['message'] == 'success!'){
           this.error = "Database updated Successfully!"

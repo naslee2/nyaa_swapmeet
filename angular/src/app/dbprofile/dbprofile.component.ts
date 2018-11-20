@@ -9,7 +9,7 @@ import { HttpService } from '../http.service';
 })
 export class DbprofileComponent implements OnInit {
   id: any;
-
+  figureData: any;
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
@@ -22,14 +22,16 @@ export class DbprofileComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.figureData = [];
     this.getDetails();
   }
 
   getDetails(){
-    let obs = this._httpService.getFigureDetail(this.id);
-    // obs.subscribe(data => {
-    //   console.log(data);
-    // })
+    let obs = this._httpService.getFigureProfile(this.id);
+    obs.subscribe(data => {
+      this.figureData.push(data['data']);
+      // console.log(this.figureData);
+    })
   }
 
 }

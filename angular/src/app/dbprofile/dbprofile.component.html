@@ -1,3 +1,12 @@
-<p>
-  dbprofile works!
-</p>
+<div *ngFor="let x of figureData">
+  <p><strong>Name:</strong> {{x['name']}}</p>
+  <p><strong>Release Date: </strong> {{x['releasedate']}}</p>
+  <p><strong>Announce Date:</strong> {{x['announcedate']}}</p>
+  <p><strong>Brand:</strong> {{x['brand']}}</p>
+  <p><strong>Series:</strong> {{x['series']}}</p>
+  <p><strong>Number:</strong> {{x['number']}}</p>
+  <p><strong>Manufacturer:</strong> {{x['manufacturer']}}</p>
+  <p><strong>Distributor:</strong> {{x['distributor']}}</p>
+  <p><strong>Release Price:</strong>{{x['currencytype']}} {{x['releaseprice']}}</p>
+  <p><strong>Notes:</strong> {{x['notes']}}</p>
+</div>
