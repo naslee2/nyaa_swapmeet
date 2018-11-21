@@ -16,7 +16,7 @@ export class DbaddComponent implements OnInit {
   constructor(
     private _router: Router,
     private _httpService: HttpService,
-    private loginChecker: HttpService
+    // private loginChecker: HttpService
   ) { }
 
   ngOnInit() {
@@ -38,7 +38,7 @@ export class DbaddComponent implements OnInit {
   }
 
   login(){ // login checker
-    this.loginChecker.cast.subscribe(data => { 
+    this._httpService.cast.subscribe(data => { 
       if (data){
         if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){ //why does this work?
           // console.log("wow", data);

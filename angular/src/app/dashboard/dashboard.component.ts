@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private _router: Router,
     private _httpService: HttpService,
-    private loginChecker: HttpService
+    // private loginChecker: HttpService
   ) { }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
   }
 
   login(){
-    this.loginChecker.cast.subscribe(data => { 
+    this._httpService.cast.subscribe(data => { 
       if (data){
         // console.log(data)
         if (data['data']['email'] && data['data']['username'] && data['data']['userid']){ //why does this work?
