@@ -42,7 +42,7 @@ export class HttpService {
   }
 
   addFigure(add){
-    console.log("haha")
+    // console.log("haha")
     return this._http.post('/add', {
       name: add.name, 
       releasedate: add.rdate, 
@@ -63,7 +63,6 @@ export class HttpService {
   }
 
   getFigureProfile(id){
-    console.log("haha",id);
     return this._http.get('/getFigureProfile/'+id.id);
   }
 

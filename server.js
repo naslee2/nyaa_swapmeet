@@ -107,7 +107,6 @@ app.post('/login', function(request, response){ //logins user and saves to mongo
             }
             else{
                 response.json({message: "Error", error: "Passwords do not match!"});
-                console.log("woah")
             }
         }
         else{
@@ -117,7 +116,6 @@ app.post('/login', function(request, response){ //logins user and saves to mongo
 })
 
 app.post('/add', function(request, response){ //observables inherently lazy, use subscribe
-    console.log("haha");
     var name = request.body.name;
     var releasedate = request.body.releasedate;
     var announcedate = request.body.announcedate;
@@ -173,7 +171,6 @@ app.get('/getFigures', function(request, response){
 
 app.get('/getFigureProfile/:id', function(request, response){
     Figuredata.findOne({_id: request.params.id}, function(err, figure){
-        console.log("lolol",request.params.id)
         if(err){
             response.json({message: "Error", error: err});
         }

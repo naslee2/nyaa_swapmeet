@@ -10,5 +10,6 @@
   <p><strong>Release Price:</strong>{{x['currencytype']}} {{x['releaseprice']}}</p>
   <p><strong>Notes:</strong> {{x['notes']}}</p>
   <a>Edit</a>
+  <a [routerLink]="['/db_edit', x._id]" >Edit</a>
 </div>
 

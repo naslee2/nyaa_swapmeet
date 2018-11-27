@@ -16,11 +16,10 @@ export class DbprofileComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _httpService: HttpService,
-  ) { 
-    this._route.params.subscribe( params => {
-      this.id = params;
-
-    });
+    ) { 
+      this._route.params.subscribe( params => {
+        this.id = params;
+      });
     }
 
   ngOnInit() {
