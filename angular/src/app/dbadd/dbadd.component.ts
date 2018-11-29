@@ -41,29 +41,24 @@ export class DbaddComponent implements OnInit {
     this._httpService.cast.subscribe(data => { 
       if (data){
         if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){ //why does this work?
-          // console.log("wow", data);
           this.sessionData = data['data'];
           this.sessioncheck= true;
-          this._router.navigate(['/databaseadd']);
+          // this._router.navigate(['/databaseadd']);
         }
         else{
           this.sessioncheck= false;
-          // console.log("lol")
           this._router.navigate(['/']);
         }
       }
       else{
         this.sessioncheck= false;
         this._router.navigate(['/']);
-        // console.log("haha")
       }
     })
   }
 
   addSubmit(){
-    console.log("haha")
     let sub = this._httpService.addFigure(this.add);
-    console.log("la",sub);
       sub.subscribe(data =>{
         if(data['message'] == 'success!'){
           this.error = "Database updated Successfully!"
@@ -72,7 +67,6 @@ export class DbaddComponent implements OnInit {
           this.error = "Database update failed!"
         }
         else{
-          console.log("unknown error")
           this.error = "Database update failed!"
         }
       })
