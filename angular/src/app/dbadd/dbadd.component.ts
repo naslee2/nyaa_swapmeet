@@ -21,7 +21,6 @@ export class DbaddComponent implements OnInit {
 
   ngOnInit() {
     this.sessionData = {};
-    this.login();
     this.add = {
       name: "", 
       rdate: "", 
@@ -35,6 +34,7 @@ export class DbaddComponent implements OnInit {
       currency: "",
       notes: "",
     }   
+    this.login();
   }
 
   login(){ // login checker

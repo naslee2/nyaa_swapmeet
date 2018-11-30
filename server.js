@@ -24,7 +24,7 @@ var FiguredataSchema = new mongoose.Schema({
     number: {type: Number},
     manufacturer: {type: String},
     distributor: {type: String},
-    releaseprice: {type: String},
+    releaseprice: {type: Number},
     currencytype: {type: String, default: "USD"},
     notes: {type: String},
     pictures: {type: Array},
@@ -127,7 +127,7 @@ app.post('/add', function(request, response){ //observables inherently lazy, use
     var releaseprice = request.body.releaseprice;
     var currencytype = request.body.currencytype;
     var notes = request.body.notes;
-
+    
     var newfigure = new Figuredata(
         {
         name: name,
@@ -151,7 +151,6 @@ app.post('/add', function(request, response){ //observables inherently lazy, use
             response.json({message: "success!", data: newfigure});
         }
     });
-    response.json({message: "success!", data: "test"});
 })
 
 app.get('/session', function(request, response){ //sends request.session data

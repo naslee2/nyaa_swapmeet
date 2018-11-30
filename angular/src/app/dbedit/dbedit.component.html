@@ -1,3 +1,54 @@
-<p>
-  dbedit works!
-</p>
+
+<div id="input-div">
+    <h3>Edit figure inside database</h3>
+    <form autocomplete="off" (submit)="editFigureData()">
+        <p>Name</p>
+        <input class="input-section" type="text" name="add.name" autocomplete="off" [(ngModel)]="edit.name" /><br>
+
+        <p>Release Date</p>
+        <input class="input-section" type="date" name="add.rdate" autocomplete="off" [(ngModel)]="edit.rdate"/><br>
+
+        <p>Announce Date</p>
+        <input class="input-section" type="date" name="add.adate" autocomplete="off" [(ngModel)]="edit.adate"/><br>
+
+        <p>Brand</p>
+        <input class="input-section" type="text" name="add.brand" autocomplete="off" [(ngModel)]="edit.brand"/><br>
+
+        <p>Series</p>
+        <input class="input-section" type="text" name="add.series" autocomplete="off" [(ngModel)]="edit.series"/><br>
+
+        <p>Number</p>
+        <input class="input-section" type="number" name="add.number" autocomplete="off" [(ngModel)]="edit.number"/><br>
+
+        <p>Manufacturer</p>
+        <input class="input-section" type="text" name="add.manufacturer" autocomplete="off" [(ngModel)]="edit.manufacturer"/><br>
+
+        <p>Distributor</p>
+        <input class="input-section" type="text" name="add.distributor" autocomplete="off" [(ngModel)]="edit.distributor"/><br>
+
+        <p>Release Price</p>
+        <input class="input-section" type="number" min="0.00" step=0.01 name="add.rprice" autocomplete="off" [(ngModel)]="edit.rprice"/><br>
+
+        <p>Currency</p>
+        <select class="input-section" name="add.currency" autocomplete="off" [(ngModel)]="edit.currency">
+            <option value="&#x24; USD">&#x24; USD</option>
+            <option value="&#xa5; JPY">&#xa5; JPY</option>
+            <option value="&#x20AC; EUR">&#x20AC; EUR</option>
+            <option value="&#x24; AUD">&#x24; AUD</option>
+            <option value="&#x24; CAD">&#x24; CAD</option>
+            <option value="&#xa3; GBP">&#xa3; GBP</option>
+            <option value="&#x24; HKD">&#x24; HKD</option>
+            <option value="&#x20A9; KRW">&#x20A9; KRW</option>
+            <option value="&#x24; SGD">&#x24; SGD</option>
+            <option value="&#x24; NTD">&#x24; NTD</option>
+        </select><br>
+        
+        <p>Notes</p>
+        <input class="input-section" type="text" name="add.notes" autocomplete="off" [(ngModel)]="edit.notes" /><br>
+
+        <!-- <p>Upload Picture</p>
+        <input type="file" name="pic" accept="image/*"><br> -->
+        <input class="submit-button" type="submit">
+    </form>
+    <p>{{error}}</p>
+</div>

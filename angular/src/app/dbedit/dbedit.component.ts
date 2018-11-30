@@ -68,11 +68,12 @@ export class DbeditComponent implements OnInit {
     let obs = this._httpService.getFigureProfile(this.id);
     obs.subscribe(data => {
       this.edit = data['data'];
+      console.log(this.edit)
     })
   }
 
   editFigureData(){
-    let edit = this._httpService.editFigureData(this.edit);
+    let editFigure = this._httpService.editFigureData(this.edit);
     // edit.subscribe(data => {
     //   if(data['error']['code'] == 11000){
     //     this.error = data['error']['errmsg']
