@@ -66,4 +66,9 @@ export class HttpService {
     return this._http.get('/getFigureProfile/'+id.id);
   }
 
+  editFigureData(data){
+    // return this._http.put('/edit/'+data.id, data)
+    console.log("service",data)
+  }
+
 }

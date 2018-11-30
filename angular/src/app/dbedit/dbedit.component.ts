@@ -25,10 +25,9 @@ export class DbeditComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("check",this.id)
     this.sessionData = {};
-    this.login();
     this.edit = {
+      _id: "",
       name: "", 
       rdate: "", 
       adate: "",
@@ -40,7 +39,10 @@ export class DbeditComponent implements OnInit {
       rprice: "",
       currency: "",
       notes: "",
+      pictures: [],
     }
+    this.login();
+    this.getDetails();
   }
 
   login(){
@@ -62,6 +64,26 @@ export class DbeditComponent implements OnInit {
     })
   }
 
-  editFigureData(){
+  getDetails(){
+    let obs = this._httpService.getFigureProfile(this.id);
+    obs.subscribe(data => {
+      this.edit = data['data'];
+    })
   }
+
+  editFigureData(){
+    let edit = this._httpService.editFigureData(this.edit);
+    // edit.subscribe(data => {
+    //   if(data['error']['code'] == 11000){
+    //     this.error = data['error']['errmsg']
+    //   }
+    //   else if (data['message'] == 'Error'){
+    //     this.error = data['error']['message']
+    //   }
+    //   else{
+    //     this._router.navigate(['/db_profile/'+this.id])
+    //   }
+    // })
+  }
+  
 }

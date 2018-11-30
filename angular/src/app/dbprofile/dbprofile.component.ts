@@ -41,18 +41,18 @@ export class DbprofileComponent implements OnInit {
     this._httpService.cast.subscribe(data => { 
       if (data){
         if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
-          console.log("wow", data);
+          // console.log("wow", data);
           this.sessionData = data['data'];
           this.sessioncheck= true;
         }
         else{
           this.sessioncheck= false;
-          console.log("lol")
+          // console.log("lol")
         }
       }
       else{
         this.sessioncheck= false;
-        console.log("haha")
+        // console.log("haha")
       }
     })
   }
