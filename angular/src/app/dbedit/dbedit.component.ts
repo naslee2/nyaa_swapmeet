@@ -29,14 +29,14 @@ export class DbeditComponent implements OnInit {
     this.edit = {
       _id: "",
       name: "", 
-      rdate: "", 
-      adate: "",
+      releasedate: "", 
+      announcedate: "",
       brand: "",
       series: "",
       number: "",
       manufacturer: "",
       distributor: "",
-      rprice: "",
+      releaseprice: "",
       currency: "",
       notes: "",
       pictures: [],
@@ -68,6 +68,10 @@ export class DbeditComponent implements OnInit {
     let obs = this._httpService.getFigureProfile(this.id);
     obs.subscribe(data => {
       this.edit = data['data'];
+      if(this.edit['releasedate'].length > 9 && this.edit['announcedate'].length > 9){
+        this.edit['releasedate'] = this.edit['releasedate'].slice(0,10);
+        this.edit['announcedate'] = this.edit['announcedate'].slice(0,10);
+      }
       console.log(this.edit)
     })
   }

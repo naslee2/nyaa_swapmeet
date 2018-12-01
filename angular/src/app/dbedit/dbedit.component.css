@@ -1,0 +1,9 @@
+form{
+    text-align:left;
+    display:inline-block;
+}
+
+.input-section{
+    width: 500px;
+    height: 20px;
+}
