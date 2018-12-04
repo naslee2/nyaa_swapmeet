@@ -26,7 +26,7 @@
         <input class="input-section" type="text" name="add.distributor" autocomplete="off" [(ngModel)]="add.distributor"/><br>
 
         <p>Release Price</p>
-        <input class="input-section" type="number" min="0.00" step=0.01 name="add.rprice" autocomplete="off" [(ngModel)]="add.rprice"/><br>
+        <input class="input-section" type="number" min="0.01" step=0.01 value='0.00' placeholder='0.00' name="add.rprice" autocomplete="off" [(ngModel)]="add.rprice"/><br>
 
         <p>Currency</p>
         <select class="input-section" name="add.currency" autocomplete="off" [(ngModel)]="add.currency">

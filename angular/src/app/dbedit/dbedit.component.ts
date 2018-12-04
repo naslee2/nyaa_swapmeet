@@ -39,7 +39,7 @@ export class DbeditComponent implements OnInit {
       manufacturer: "",
       distributor: "",
       releaseprice: "",
-      currency: "",
+      currencytype: "",
       notes: "",
       pictures: [],
     }
