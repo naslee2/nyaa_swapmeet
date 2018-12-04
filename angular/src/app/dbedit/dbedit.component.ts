@@ -13,6 +13,8 @@ export class DbeditComponent implements OnInit {
   edit: any;
   sessionData: any;
   sessioncheck: any;
+  currency: any;
+  // objectkeys = Object.keys;
 
   constructor(
     private _route: ActivatedRoute,
@@ -41,6 +43,8 @@ export class DbeditComponent implements OnInit {
       notes: "",
       pictures: [],
     }
+    // this.currency = ["USD", "JPY", "EUR", "AUD", "CAD", "GBP", "HKD", "KRW", "SGD", "NTD"]
+    this.currency = []
     this.login();
     this.getDetails();
   }
@@ -68,6 +72,7 @@ export class DbeditComponent implements OnInit {
     let obs = this._httpService.getFigureProfile(this.id);
     obs.subscribe(data => {
       this.edit = data['data'];
+      this.currency.push(data['data']['currencytype'])
       if(this.edit['releasedate'].length > 9 && this.edit['announcedate'].length > 9){
         this.edit['releasedate'] = this.edit['releasedate'].slice(0,10);
         this.edit['announcedate'] = this.edit['announcedate'].slice(0,10);
