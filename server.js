@@ -127,7 +127,7 @@ app.post('/add', function(request, response){ //observables inherently lazy, use
     var releaseprice = request.body.releaseprice;
     var currencytype = request.body.currencytype;
     var notes = request.body.notes;
-    
+
     var newfigure = new Figuredata(
         {
         name: name,
@@ -153,6 +153,32 @@ app.post('/add', function(request, response){ //observables inherently lazy, use
     });
 })
 
+app.put("/edit/:id", function(request, response){
+    Figuredata.findOne({_id: request.params.id}, function(error, figures){
+        figures.name = request.body.name;
+        figures.releasedate = request.body.releasedate;
+        figures.announcedate = request.body.announcedate;
+        figures.brand = request.body.brand;
+        figures.series = request.body.series;
+        figures.number = request.body.number;
+        figures.manufacturer = request.body.manufacturer;
+        figures.distributor = request.body.distributor;
+        figures.releaseprice = request.body.releaseprice;
+        figures.currencytype = request.body.currencytype;
+        figures.notes = request.body.notes;
+        figures.save(function(error){
+            if(error){
+                console.log("Error")
+                response.json({message: "Error", error: error})
+            }
+            else{
+                console.log("success");
+                response.json({message: "success", data: figures})
+            }
+        })
+    })
+})
+
 app.get('/session', function(request, response){ //sends request.session data
     response.json({message: "Success", data: request.session}); 
 })
@@ -168,7 +194,7 @@ app.get('/getFigures', function(request, response){
     })
 })
 
-app.get('/getFigureProfile/:id', function(request, response){
+app.get('/getFigureProfile/:id', function(request, response){ //gets figure data for viewing
     Figuredata.findOne({_id: request.params.id}, function(err, figure){
         if(err){
             response.json({message: "Error", error: err});

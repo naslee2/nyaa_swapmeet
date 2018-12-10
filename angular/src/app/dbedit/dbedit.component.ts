@@ -71,8 +71,13 @@ export class DbeditComponent implements OnInit {
   getDetails(){
     let obs = this._httpService.getFigureProfile(this.id);
     obs.subscribe(data => {
-      this.edit = data['data'];
-      this.currency.push(data['data']['currencytype'])
+      if(data){
+        this.edit = data['data'];
+        this.currency.push(data['data']['currencytype'])
+        console.log(this.currency)
+      }
+      
+
       if(this.edit['releasedate'].length > 9 && this.edit['announcedate'].length > 9){
         this.edit['releasedate'] = this.edit['releasedate'].slice(0,10);
         this.edit['announcedate'] = this.edit['announcedate'].slice(0,10);
@@ -83,17 +88,18 @@ export class DbeditComponent implements OnInit {
 
   editFigureData(){
     let editFigure = this._httpService.editFigureData(this.edit);
-    // edit.subscribe(data => {
-    //   if(data['error']['code'] == 11000){
-    //     this.error = data['error']['errmsg']
-    //   }
-    //   else if (data['message'] == 'Error'){
-    //     this.error = data['error']['message']
-    //   }
-    //   else{
-    //     this._router.navigate(['/db_profile/'+this.id])
-    //   }
-    // })
+    editFigure.subscribe(data => {
+      if(data['message'] == 'success'){
+        console.log("id",this.id)
+        this._router.navigate(['/db_profile', this.id.id]);
+      }
+      else if (data['message'] == 'Error'){
+        this.error = data['error']['message']
+      }
+      else if(data['error']['code'] == 11000){
+        this.error = data['error']['errmsg']
+      }
+    })
   }
   
 }

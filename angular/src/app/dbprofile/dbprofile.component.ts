@@ -18,8 +18,10 @@ export class DbprofileComponent implements OnInit {
     private _httpService: HttpService,
     ) { 
       this._route.params.subscribe( params => {
-        this.id = params;
+          this.id = params;
+        console.log("ddd", this.id)
       });
+      
     }
 
   ngOnInit() {
@@ -33,7 +35,7 @@ export class DbprofileComponent implements OnInit {
     let obs = this._httpService.getFigureProfile(this.id);
     obs.subscribe(data => {
       this.figureData.push(data['data']);
-      // console.log(this.figureData);
+      console.log(this.figureData);
     })
   }
 
