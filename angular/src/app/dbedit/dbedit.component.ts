@@ -74,15 +74,14 @@ export class DbeditComponent implements OnInit {
       if(data){
         this.edit = data['data'];
         this.currency.push(data['data']['currencytype'])
-        console.log(this.currency)
+        // console.log(this.currency)
       }
       
-
       if(this.edit['releasedate'].length > 9 && this.edit['announcedate'].length > 9){
         this.edit['releasedate'] = this.edit['releasedate'].slice(0,10);
         this.edit['announcedate'] = this.edit['announcedate'].slice(0,10);
       }
-      console.log(this.edit)
+      // console.log(this.edit)
     })
   }
 
@@ -90,7 +89,7 @@ export class DbeditComponent implements OnInit {
     let editFigure = this._httpService.editFigureData(this.edit);
     editFigure.subscribe(data => {
       if(data['message'] == 'success'){
-        console.log("id",this.id)
+        // console.log("id",this.id)
         this._router.navigate(['/db_profile', this.id.id]);
       }
       else if (data['message'] == 'Error'){

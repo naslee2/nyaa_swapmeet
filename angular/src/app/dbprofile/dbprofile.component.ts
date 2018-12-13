@@ -19,7 +19,7 @@ export class DbprofileComponent implements OnInit {
     ) { 
       this._route.params.subscribe( params => {
           this.id = params;
-        console.log("ddd", this.id)
+        // console.log("ddd", this.id)
       });
       
     }
@@ -35,7 +35,7 @@ export class DbprofileComponent implements OnInit {
     let obs = this._httpService.getFigureProfile(this.id);
     obs.subscribe(data => {
       this.figureData.push(data['data']);
-      console.log(this.figureData);
+      // console.log(this.figureData);
     })
   }
 
