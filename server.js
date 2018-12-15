@@ -44,7 +44,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: {maxAge: null}
 }));
-
+// mongoose.set('useCreateIndex', true);
 mongoose.connect('mongodb://localhost/user',{useNewUrlParser: true });
 
 mongoose.Promise = global.Promise;
