@@ -11,6 +11,7 @@
   <p><strong>Notes:</strong> {{x['notes']}}</p>
   <div *ngIf="sessionData.usertype == 2">
       <a [routerLink]="['/db_edit', x._id]" >Edit</a>
+      <a>Delete</a>
   </div>
   
 </div>
