@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
         if (data['data']['mail'] || data['data']['username'] || data['data']['userid']){ //why does this work?
           this.sessionData = data['data'];
           this.sessioncheck= true;
-          console.log("login", this.sessionData)
+          // console.log("login", this.sessionData)
         }
       }
       else{

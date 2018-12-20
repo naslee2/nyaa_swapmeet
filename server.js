@@ -179,6 +179,17 @@ app.put("/edit/:id", function(request, response){
     })
 })
 
+app.delete("/delete/:id", function(request, response){
+    Figuredata.deleteOne({_id: request.params.id}, function(err){
+        if(err){
+            response.json({message: "Error", error: err})
+        }
+        else{
+            response.json({message: "success"});
+        }
+    })
+})
+
 app.get('/session', function(request, response){ //sends request.session data
     response.json({message: "Success", data: request.session}); 
 })

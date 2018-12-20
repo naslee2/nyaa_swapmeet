@@ -51,6 +51,7 @@ export class DbeditComponent implements OnInit {
 
   login(){
     this._httpService.cast.subscribe(data => {
+      // console.log("data",data)
       if(data){
         if(data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
           this.sessionData = data['data'];
@@ -58,12 +59,15 @@ export class DbeditComponent implements OnInit {
         }
         else{
           this.sessioncheck= false;
+          // this._router.navigate(['/db_profile', this.id.id]);
           this._router.navigate(['/']);
         }
       }
       else{
+        // console.log("else")
         this.sessioncheck= false;
-        this._router.navigate(['/']);
+        this._router.navigate(['/db_profile', this.id.id]);
+        // this._router.navigate(['/']);
       }
     })
   }
@@ -99,6 +103,22 @@ export class DbeditComponent implements OnInit {
         this.error = data['error']['errmsg']
       }
     })
+  }
+
+  deleteFigureData(){
+    console.log("test",this.id.id)
+    let deleteFigure = this._httpService.deleteFigureData(this.id.id);
+    deleteFigure.subscribe(data => {
+      if(data['message'] == 'Error'){
+        console.log("Error!", data)
+        this.error = "Unable to delete - Database error";
+      }
+      else{
+        console.log("Success!")
+        this._router.navigate(['/index'])
+      }
+    })
+
   }
   
 }
