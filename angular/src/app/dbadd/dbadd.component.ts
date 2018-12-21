@@ -34,7 +34,16 @@ export class DbaddComponent implements OnInit {
       currency: "",
       notes: "",
     }   
-    this.login();
+    // this.login();
+    this.sessionChecker();
+  }
+
+  sessionChecker(){
+    var check = this._httpService.checkSession();
+    check.subscribe(data =>{
+      // console.log("sessioncheck",data);
+      this.login();
+    })
   }
 
   login(){ // login checker

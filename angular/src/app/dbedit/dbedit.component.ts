@@ -46,7 +46,6 @@ export class DbeditComponent implements OnInit {
     // this.currency = ["USD", "JPY", "EUR", "AUD", "CAD", "GBP", "HKD", "KRW", "SGD", "NTD"]
     this.currency = []
     this.sessionChecker()
-    // this.login();
     this.getDetails();
   }
 
