@@ -115,7 +115,7 @@ app.post('/login', function(request, response){ //logins user and saves to mongo
     })
 })
 
-app.post('/add', function(request, response){ //observables inherently lazy, use subscribe
+app.post('/add', function(request, response){ //ADD FIGURE TO DB
     var name = request.body.name;
     var releasedate = request.body.releasedate;
     var announcedate = request.body.announcedate;
@@ -153,7 +153,7 @@ app.post('/add', function(request, response){ //observables inherently lazy, use
     });
 })
 
-app.put("/edit/:id", function(request, response){
+app.put("/edit/:id", function(request, response){ //EDIT FIGURE TO DB
     Figuredata.findOne({_id: request.params.id}, function(error, figures){
         figures.name = request.body.name;
         figures.releasedate = request.body.releasedate;
@@ -179,7 +179,7 @@ app.put("/edit/:id", function(request, response){
     })
 })
 
-app.delete("/delete/:id", function(request, response){
+app.delete("/delete/:id", function(request, response){ //DELETE FIGURE TO DB
     Figuredata.deleteOne({_id: request.params.id}, function(err){
         if(err){
             response.json({message: "Error", error: err})

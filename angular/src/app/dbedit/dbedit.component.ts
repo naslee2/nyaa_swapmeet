@@ -45,13 +45,26 @@ export class DbeditComponent implements OnInit {
     }
     // this.currency = ["USD", "JPY", "EUR", "AUD", "CAD", "GBP", "HKD", "KRW", "SGD", "NTD"]
     this.currency = []
-    this.login();
+    this.sessionChecker()
+    // this.login();
     this.getDetails();
+  }
+
+  //when refresh - do session check
+  //if logged in, hit login()
+  //recall the observable to cast again if no data
+
+  sessionChecker(){
+    var check = this._httpService.checkSession();
+    check.subscribe(data =>{
+      // console.log("sessioncheck",data);
+      this.login();
+    })
   }
 
   login(){
     this._httpService.cast.subscribe(data => {
-      // console.log("data",data)
+      console.log("data",data)
       if(data){
         if(data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
           this.sessionData = data['data'];
@@ -64,7 +77,7 @@ export class DbeditComponent implements OnInit {
         }
       }
       else{
-        // console.log("else")
+        console.log("else")
         this.sessioncheck= false;
         this._router.navigate(['/db_profile', this.id.id]);
         // this._router.navigate(['/']);

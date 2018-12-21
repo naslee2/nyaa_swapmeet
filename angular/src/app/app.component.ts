@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _httpService: HttpService,
-    private loginChecker: HttpService
   ) {}
   
   ngOnInit() {
@@ -25,7 +24,7 @@ export class AppComponent implements OnInit {
   }
 
   login(){
-    this.loginChecker.cast.subscribe(data => {
+    this._httpService.cast.subscribe(data => {
       if (data){
         if (data['data']['mail'] || data['data']['username'] || data['data']['userid']){ //why does this work?
           this.sessionData = data['data'];
