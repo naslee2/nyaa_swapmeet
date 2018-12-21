@@ -191,7 +191,12 @@ app.delete("/delete/:id", function(request, response){ //DELETE FIGURE TO DB
 })
 
 app.get('/session', function(request, response){ //sends request.session data
-    response.json({message: "Success", data: request.session}); 
+    if (request.session){
+        response.json({message: "success!", data: request.session});
+    }
+    else{
+        response.json({message: "Error", error: "session not valid"})
+    }       
 })
 
 app.get('/getFigures', function(request, response){
@@ -223,17 +228,6 @@ app.get('/logout', function(request, response){ //deletes request.session data
     }
     else{
         response.json({message: "Error", data: "cookies unable to be cleared"})
-    }
-    
-    
-})
-
-app.get('/checkSession', function(request, response){ //sends data for any request.session users.
-    if (request.session){
-        response.json({message: "success!", data: request.session});
-    }
-    else{
-        response.json({message: "Error", error: "session not valid"})
     }
 })
 

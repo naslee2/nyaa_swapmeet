@@ -26,7 +26,8 @@ export class HttpService {
   }
 
   checkSession(){ //checks user session
-    return this._http.get('/checkSession');
+    // return this._http.get('/checkSession');
+    return this._http.get('/session');
   }
 
   loginSet(){ //send user request.session data to listeners
