@@ -27,7 +27,7 @@ export class DbprofileComponent implements OnInit {
   ngOnInit() {
     this.sessionData = {};
     this.figureData = [];
-    this.login();
+    this.sessionChecker();
     this.getDetails();
   }
 
@@ -39,8 +39,17 @@ export class DbprofileComponent implements OnInit {
     })
   }
 
+  sessionChecker(){
+    var check = this._httpService.checkSession();
+    check.subscribe(data =>{
+      // console.log("sessioncheck",data);
+      this.login();
+    })
+  }
+
   login(){ // login checker
     this._httpService.cast.subscribe(data => { 
+      console.log("dsd", data)
       if (data){
         if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
           // console.log("wow", data);

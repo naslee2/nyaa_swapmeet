@@ -65,20 +65,4 @@ export class DashboardComponent implements OnInit {
 
     })
   }
-
-
-  // sessionCheck(){
-  //   let check = this._httpService.checkSession();
-  //   check.subscribe(data =>{
-  //     this.sessionData = data['data']
-  //     if (this.sessionData['email'] || this.sessionData['userid'] || this.sessionData['username']){
-  //       this.sessioncheck = true;
-  //     }
-  //     else{
-  //       this.sessioncheck= false;
-  //       this._router.navigate(['/']);
-  //     }
-  //   })
-  // }
-
 }

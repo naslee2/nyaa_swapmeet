@@ -30,11 +30,27 @@ var FiguredataSchema = new mongoose.Schema({
     pictures: {type: Array},
 },{timestamps: true});
 
+var ListingSchema = new mongoose.Schema({
+    listingstatus: {type: String, default: "OPEN"},
+    name: {type: String, required: true},
+    brand: {type: String, required: true},
+    series: {type: String, required: true},
+    number: {type: Number},
+    manufacturer: {type: String},
+    distributor: {type: String},
+    askingprice: {type: Number},
+    currencytype: {type: String, default: "USD"},
+    notes: {type: String},
+    pictures: {type: Array},
+})
+
 mongoose.model('User', UserSchema, 'users');
 mongoose.model('Figuredata', FiguredataSchema, 'figures')
+mongoose.model('Listing', ListingSchema, 'listings')
 
 var User = mongoose.model('User');
 var Figuredata = mongoose.model('Figuredata')
+var ListingData = mongoose.model('Listing')
 
 app.use(bodyParser.json());
 
