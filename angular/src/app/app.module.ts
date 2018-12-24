@@ -23,6 +23,7 @@ import { EditcollectionComponent } from './editcollection/editcollection.compone
 import { DbaddComponent } from './dbadd/dbadd.component';
 import { DbeditComponent } from './dbedit/dbedit.component';
 import { DbprofileComponent } from './dbprofile/dbprofile.component';
+import { ViewlistingComponent } from './viewlisting/viewlisting.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { DbprofileComponent } from './dbprofile/dbprofile.component';
     DbaddComponent,
     DbeditComponent,
     DbprofileComponent,
+    ViewlistingComponent,
   ],
   imports: [
     BrowserModule,

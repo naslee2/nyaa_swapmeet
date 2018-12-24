@@ -32,15 +32,11 @@ var FiguredataSchema = new mongoose.Schema({
 
 var ListingSchema = new mongoose.Schema({
     listingstatus: {type: String, default: "OPEN"},
-    name: {type: String, required: true},
-    brand: {type: String, required: true},
-    series: {type: String, required: true},
-    number: {type: Number},
-    manufacturer: {type: String},
-    distributor: {type: String},
+    listingtitle: {type: String},
+    listingsummary: {type: String},
+    listingnotes: {type: String},
     askingprice: {type: Number},
     currencytype: {type: String, default: "USD"},
-    notes: {type: String},
     pictures: {type: Array},
 })
 
