@@ -33,7 +33,7 @@ const routes: Routes = [
   {path: 'db_profile/:id', component: DbprofileComponent},
   {path: 'viewlisting/:id', component: ViewlistingComponent},
   {path: 'editlisting/:id', component: EditlistingComponent},
-  {path: 'addlisting/:id', component: AddlistingComponent},
+  {path: 'addlisting', component: AddlistingComponent},
 
 
 ];

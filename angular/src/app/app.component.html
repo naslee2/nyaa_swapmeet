@@ -15,13 +15,19 @@
         <a [routerLink]="['dashboard']" class="dropbtn">Welcome, {{sessionData.username}}!</a>
         <div *ngIf="sessionData.usertype == 2" class="dropdown-content">
           <a [routerLink]="['dashboard']">Dashboard</a>
-          <a [routerLink]="['databaseadd']">Add to Database</a>  
+          <a [routerLink]="['databaseadd']">Add to Database</a> 
+          <a [routerLink]="['addlisting']">Add New Listing</a>  
           <a (click)="logout()">Log Out</a>
         </div>
         <div *ngIf="sessionData.usertype != 2" class="dropdown-content">
             <a [routerLink]="['dashboard']">Dashboard</a>  
             <a (click)="logout()">Log Out</a>
-          </div>
+        </div>
+        <div *ngIf="sessionData.usertype == 1" class="dropdown-content">
+          <a [routerLink]="['dashboard']">Dashboard</a>  
+          <a [routerLink]="['addlisting']">Add New Listing</a> 
+          <a (click)="logout()">Log Out</a>
+      </div>
     </li>
   </ul>
 </div>
