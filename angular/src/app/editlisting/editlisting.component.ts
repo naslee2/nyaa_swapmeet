@@ -31,7 +31,7 @@ export class EditlistingComponent implements OnInit {
 
   login(){
     this._httpService.cast.subscribe(data => {
-      console.log("data",data)
+      // console.log("data",data)
       if(data){
         if(data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
           this.sessionData = data['data'];
@@ -44,7 +44,7 @@ export class EditlistingComponent implements OnInit {
         }
       }
       else{
-        console.log("else")
+        // console.log("else")
         this.sessioncheck= false;
         this._router.navigate(['/db_profile', this.id.id]);
         // this._router.navigate(['/']);
