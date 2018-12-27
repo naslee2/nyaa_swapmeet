@@ -29,25 +29,25 @@ export class EditlistingComponent implements OnInit {
     this.sessionData = {};
   }
 
-  login(){
-    this._httpService.cast.subscribe(data => {
-      // console.log("data",data)
-      if(data){
-        if(data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
+  sessionChecker(){
+    var check = this._httpService.checkSession();
+    check.subscribe(data =>{
+      // console.log("sessioncheck",data);
+      // this.login();
+      if (data){
+        if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){ //why does this work?
           this.sessionData = data['data'];
           this.sessioncheck= true;
+          // this._router.navigate(['/databaseadd']);
         }
         else{
           this.sessioncheck= false;
-          // this._router.navigate(['/db_profile', this.id.id]);
           this._router.navigate(['/']);
         }
       }
       else{
-        // console.log("else")
         this.sessioncheck= false;
-        this._router.navigate(['/db_profile', this.id.id]);
-        // this._router.navigate(['/']);
+        this._router.navigate(['/']);
       }
     })
   }
