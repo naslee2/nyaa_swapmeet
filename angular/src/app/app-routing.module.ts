@@ -18,6 +18,7 @@ import { ViewlistingComponent } from './viewlisting/viewlisting.component';
 import { EditlistingComponent } from './editlisting/editlisting.component';
 import { AddlistingComponent } from './addlisting/addlisting.component';
 
+import { ViewcollectionsComponent } from './viewcollections/viewcollections.component';
 
 
 
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path: 'viewlisting/:id', component: ViewlistingComponent},
   {path: 'editlisting/:id', component: EditlistingComponent},
   {path: 'addlisting', component: AddlistingComponent},
+  {path: 'collections', component: ViewcollectionsComponent},
 
 
 ];

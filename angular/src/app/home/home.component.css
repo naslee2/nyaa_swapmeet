@@ -1,0 +1,42 @@
+#home_background {
+    background-image: url("../../assets/figure-hatsune-miku-trick-or-miku-vocaloid-figure-primary.jpg");
+    height: 100vh;
+    width: auto 100vw;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+}
+
+#introtext{
+    text-align: center;
+    vertical-align: middle;
+    width: 50%;
+    margin-top: 40vh;
+    margin-bottom: 40vh;
+    margin-right: 30%;
+    margin-left: 30%;
+}
+
+#introtext h1 {
+    font-size: 65px;
+    color: white;
+    margin: 5px 5px 5px 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#introtext h2 {
+    font-size: 30px;
+    color: white;
+    margin: 5px 5px 5px 5px;
+    /* font-family:  */
+}
+
+button {
+    font-size: 20px;
+    color: white;
+    background-color: transparent;
+    border: 3px solid white;
+    border-radius: 30px;
+    margin: 5px 5px 5px 5px;
+}
+
