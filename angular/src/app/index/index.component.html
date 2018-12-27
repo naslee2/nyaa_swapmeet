@@ -1,10 +1,12 @@
 <div id="indexdiv">
-    <div>
-        <h3>Database of all Figures</h3>
-    </div>
-    <div>
-      <div class="info" *ngFor="let x of figureData">
-        <a [routerLink]="['/db_profile', x._id]" >{{x['name']}}</a>
+  <div>
+      <div>
+          <h3>Database of all Figures</h3>
       </div>
-    </div>
+      <div>
+        <div class="info" *ngFor="let x of figureData">
+          <a [routerLink]="['/db_profile', x._id]" >{{x['name']}}</a>
+        </div>
+      </div>
+  </div>  
 </div>
