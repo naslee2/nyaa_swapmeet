@@ -56,14 +56,6 @@ export class DbeditComponent implements OnInit {
   sessionChecker(){
     var check = this._httpService.checkSession();
     check.subscribe(data =>{
-      // console.log("sessioncheck",data);
-      this.login();
-    })
-  }
-
-  login(){
-    this._httpService.cast.subscribe(data => {
-      console.log("data",data)
       if(data){
         if(data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
           this.sessionData = data['data'];
@@ -76,13 +68,36 @@ export class DbeditComponent implements OnInit {
         }
       }
       else{
-        console.log("else")
+        // console.log("else")
         this.sessioncheck= false;
         this._router.navigate(['/db_profile', this.id.id]);
-        // this._router.navigate(['/']);
       }
     })
   }
+
+  //ORIGINALLY THIS WAS SUPPOSED TO GET CASTED OBSERVABLE FROM HTTP.SERVICE.TS BUT CASTED DATA DISSAPEAR WHEN WEB PAGE RELOADED AND REINITALIZED.
+  // login(){
+  //   this._httpService.cast.subscribe(data => {
+  //     // console.log("data",data)
+  //     if(data){
+  //       if(data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
+  //         this.sessionData = data['data'];
+  //         this.sessioncheck= true;
+  //       }
+  //       else{
+  //         this.sessioncheck= false;
+  //         // this._router.navigate(['/db_profile', this.id.id]);
+  //         this._router.navigate(['/']);
+  //       }
+  //     }
+  //     else{
+  //       // console.log("else")
+  //       this.sessioncheck= false;
+  //       this._router.navigate(['/db_profile', this.id.id]);
+  //       // this._router.navigate(['/']);
+  //     }
+  //   })
+  // }
 
   getDetails(){
     let obs = this._httpService.getFigureProfile(this.id);

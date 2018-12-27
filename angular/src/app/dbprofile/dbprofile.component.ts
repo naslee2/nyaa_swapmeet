@@ -21,7 +21,6 @@ export class DbprofileComponent implements OnInit {
           this.id = params;
         // console.log("ddd", this.id)
       });
-      
     }
 
   ngOnInit() {
@@ -43,29 +42,44 @@ export class DbprofileComponent implements OnInit {
     var check = this._httpService.checkSession();
     check.subscribe(data =>{
       // console.log("sessioncheck",data);
-      this.login();
-    })
-  }
-
-  login(){ // login checker
-    this._httpService.cast.subscribe(data => { 
-      console.log("dsd", data)
+      // this.login();
       if (data){
-        if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
-          // console.log("wow", data);
+        if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){ //why does this work?
           this.sessionData = data['data'];
           this.sessioncheck= true;
+          // this._router.navigate(['/databaseadd']);
         }
         else{
           this.sessioncheck= false;
-          // console.log("lol")
+          this._router.navigate(['/']);
         }
       }
       else{
         this.sessioncheck= false;
-        // console.log("haha")
+        this._router.navigate(['/']);
       }
     })
   }
+
+  // login(){ // login checker
+  //   this._httpService.cast.subscribe(data => { 
+  //     console.log("dsd", data)
+  //     if (data){
+  //       if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
+  //         // console.log("wow", data);
+  //         this.sessionData = data['data'];
+  //         this.sessioncheck= true;
+  //       }
+  //       else{
+  //         this.sessioncheck= false;
+  //         // console.log("lol")
+  //       }
+  //     }
+  //     else{
+  //       this.sessioncheck= false;
+  //       // console.log("haha")
+  //     }
+  //   })
+  // }
 
 }
