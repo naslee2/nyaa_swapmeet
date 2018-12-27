@@ -1,18 +1,10 @@
-<h3>Database of all Figures</h3>
-<div>
-  <div class="info" *ngFor="let x of figureData">
-    <a [routerLink]="['/db_profile', x._id]" >{{x['name']}}</a>
-  </div>
+<div id="indexdiv">
+    <div>
+        <h3>Database of all Figures</h3>
+    </div>
+    <div>
+      <div class="info" *ngFor="let x of figureData">
+        <a [routerLink]="['/db_profile', x._id]" >{{x['name']}}</a>
+      </div>
+    </div>
 </div>
-
-<!-- name: add.name, 
-releasedate: add.rdate, 
-announcedate: add.adate, 
-brand: add.brand, 
-series: add.series, 
-number: add.number, 
-manufacturer: add.manufacturer, 
-distributor: add.distributor, 
-releaseprice: add.rprice, 
-currencytype: add.currency, 
-notes: add.notes         -->
