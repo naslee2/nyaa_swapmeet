@@ -25,6 +25,7 @@ import { DbeditComponent } from './dbedit/dbedit.component';
 import { DbprofileComponent } from './dbprofile/dbprofile.component';
 import { ViewlistingComponent } from './viewlisting/viewlisting.component';
 import { ViewcollectionsComponent } from './viewcollections/viewcollections.component';
+import { BuylistingComponent } from './buylisting/buylisting.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { ViewcollectionsComponent } from './viewcollections/viewcollections.comp
     DbprofileComponent,
     ViewlistingComponent,
     ViewcollectionsComponent,
+    BuylistingComponent,
   ],
   imports: [
     BrowserModule,

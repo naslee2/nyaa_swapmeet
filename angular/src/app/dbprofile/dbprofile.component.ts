@@ -51,12 +51,10 @@ export class DbprofileComponent implements OnInit {
         }
         else{
           this.sessioncheck= false;
-          this._router.navigate(['/']);
         }
       }
       else{
         this.sessioncheck= false;
-        this._router.navigate(['/']);
       }
     })
   }
