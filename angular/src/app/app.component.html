@@ -5,10 +5,12 @@
     <li><a [routerLink]="['listings']">Trade</a></li>
     <li><a [routerLink]="['collections']">Interact</a></li>
     <li>
-      <form id="searchform">
-        <input id="searchbar" type="text" placeholder="Search..">
-        <button class=submit-button>Search!</button>
-      </form>  
+      <div id="searchbar">
+        <form id="searchform">
+          <input class="searchinput" type="text" placeholder="Search..">
+          <button class=submit-button>Search!</button>
+        </form>  
+      </div>
     </li>
 
     <li *ngIf="!sessioncheck" class="dropdown">

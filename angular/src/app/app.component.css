@@ -84,17 +84,30 @@ li a:hover, .dropdown:hover .dropbtn {
 }
 
 #searchbar{
-    width: 400px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 4px 4px;
+    display:inline-block;
+    position:relative;
+    /* border:1px solid transparent; */
+    border-radius: 25px;
+    background-color: silver;
+}
+
+.searchinput{
+    width: 500px;
     height: 20px;
-    border-radius: 30px;
+    background-color:transparent;
+    border:0;
 }
 
 #searchform{
-    padding: 12px 12px;
+    
 }
 
 .submit-button{
+    background-color:transparent;
     border: none;
     cursor: pointer;
-    
+    color: black;
 }
