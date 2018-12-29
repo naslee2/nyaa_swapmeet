@@ -1,10 +1,15 @@
 form{
     text-align:left;
     display:inline-block;
+    
 }
 
 .input-section{
     width: 500px;
     height: 20px;
+}
+
+.register_form{
+    margin-top: 50px;
 }
 
