@@ -76,4 +76,23 @@ export class HttpService {
     return this._http.delete('/delete/'+id);
   }
 
+  getListings(){
+
+  }
+
+  getListingProfile(){
+    
+  }
+
+  addListing(){
+
+  }
+
+  editListing(){
+
+  }
+
+  deleteListing(){
+
+  }
 }

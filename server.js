@@ -31,14 +31,15 @@ var FiguredataSchema = new mongoose.Schema({
 },{timestamps: true});
 
 var ListingSchema = new mongoose.Schema({
-    listingstatus: {type: String, default: "OPEN"},
-    listingtitle: {type: String},
+    listingstatus: {type: String, default: "OPEN", required: true},
+    enddate:{type: Date, required: true},
+    listingtitle: {type: String, required: true},
     listingsummary: {type: String},
     listingnotes: {type: String},
     askingprice: {type: Number},
     currencytype: {type: String, default: "USD"},
     pictures: {type: Array},
-})
+},{timestamps: true})
 
 mongoose.model('User', UserSchema, 'users');
 mongoose.model('Figuredata', FiguredataSchema, 'figures')
