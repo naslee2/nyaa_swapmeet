@@ -1,10 +1,16 @@
 <div id="navbar">
   <ul>
-    <li><a [routerLink]="['']">Nyaa Swapmeet</a></li>
-    <li><a [routerLink]="['index']">Database</a></li>
-    <li><a [routerLink]="['listings']">Listings</a></li>
-    <li><a [routerLink]="['collections']">Collections</a></li>
-    
+    <li><a [routerLink]="['']">NyaaSwap</a></li>
+    <li><a [routerLink]="['index']">Explore</a></li>
+    <li><a [routerLink]="['listings']">Trade</a></li>
+    <li><a [routerLink]="['collections']">Interact</a></li>
+    <li>
+      <form id="searchform">
+        <input id="searchbar" type="text" placeholder="Search..">
+        <button class=submit-button>Search!</button>
+      </form>  
+    </li>
+
     <li *ngIf="!sessioncheck" class="dropdown">
         <a [routerLink]="['register']" class="dropbtn">Login/Register</a>
         <div class="dropdown-content">

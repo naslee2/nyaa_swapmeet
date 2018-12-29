@@ -82,3 +82,19 @@ li a:hover, .dropdown:hover .dropbtn {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+#searchbar{
+    width: 400px;
+    height: 20px;
+    border-radius: 30px;
+}
+
+#searchform{
+    padding: 12px 12px;
+}
+
+.submit-button{
+    border: none;
+    cursor: pointer;
+    
+}
