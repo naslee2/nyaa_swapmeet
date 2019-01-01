@@ -244,6 +244,15 @@ app.get('/logout', function(request, response){ //deletes request.session data
     }
 })
 
+app.get('/getalllistings', function(request, response){
+
+})
+
+app.get('/getlisting', function(request, response){
+
+})
+
+
 app.all("*", (req,res,next) => {
     res.sendFile(path.resolve("./angular/dist/index.html"))
 });
