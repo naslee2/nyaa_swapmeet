@@ -1,12 +1,18 @@
 <div id="indexdiv">
-  <div>
-      <div>
-          <h3>Database of all Figures</h3>
+  <div id="indexdiv2">
+      <div class="titlediv">
+          <h3>Figure Database</h3>
       </div>
-      <div>
+
+      <div class="datadiv">
+        <div class="searchoptions">
+
+        </div>
+
         <div class="info" *ngFor="let x of figureData">
           <a [routerLink]="['/db_profile', x._id]" >{{x['name']}}</a>
         </div>
       </div>
+      
   </div>  
 </div>

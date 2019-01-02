@@ -8,5 +8,24 @@
 
 #indexdiv{
     margin-top: 50px;
+    margin-bottom: 50px;
     color: white;
+    
+}
+
+#indexdiv2{
+    height: 1000px;
+    margin-left: 150px;
+    margin-right: 150px;
+    background-color: #1d1d1d;
+}
+
+.titlediv{
+    text-align: center;
+    padding: 20px 20px 20px 20px;
+}
+
+.datadiv{
+    box-shadow: 0 0 5px 2px black;
+    border-radius: 20px;
 }
