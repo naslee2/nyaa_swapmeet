@@ -3,7 +3,7 @@
     height: 150px;
     border: 1px solid black;
     border-radius: 20px;
-    margin-left: 20px;
+    margin-left: 30px;
     margin-bottom: 20px;
     text-align: center;
     vertical-align: top;
@@ -12,13 +12,15 @@
 
 #indexdiv{
     color: white;
+    height: 100%;
 }
 
 #indexdiv2{
-    height: 95%;
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    padding-top: 50px;
     margin-left: 150px;
     margin-right: 150px;
+    padding-bottom: 5px;
     background-color: #1d1d1d;
 }
 
@@ -41,6 +43,10 @@
     height: 20px;
 }
 
+.searchinputsubmit{
+    width: 60px;
+}
+
 .datadiv{
     box-shadow: 0 0 5px 2px black;
     border-radius: 20px;
@@ -49,6 +55,9 @@
 }
 
 .legal{
-    height: 50px;
-
+    height: 100px;
+    /* border: 1px solid black; */
+    margin-top: 5px;
+    margin-left: 150px;
+    margin-right: 150px;
 }

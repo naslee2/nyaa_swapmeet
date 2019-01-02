@@ -10,6 +10,7 @@
           <input class="searchinput" type="text" placeholder="Manufacturer">
           <input class="searchinput" type="text" placeholder="Release Year">
           <input class="searchinput" type="text" placeholder="Price">
+          <!-- <input class="searchinputsubmit" type="submit"> -->
         </div>
         <div class="info" *ngFor="let x of figureData">
           <a [routerLink]="['/db_profile', x._id]" >{{x['name']}}</a>
