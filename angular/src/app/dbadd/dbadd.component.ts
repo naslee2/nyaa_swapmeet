@@ -83,7 +83,7 @@ export class DbaddComponent implements OnInit {
     let sub = this._httpService.addFigure(this.add);
       sub.subscribe(data =>{
         if(data['message'] == 'success!'){
-          this.error = "Database updated Successfully!"
+          this._router.navigate(['/index']);
         }
         else if(data['message'] == 'Error'){
           this.error = "Database update failed!"
