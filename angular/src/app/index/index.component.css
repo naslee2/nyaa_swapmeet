@@ -4,7 +4,7 @@
     border: 1px solid black;
     border-radius: 20px;
     margin-left: 16px;
-    margin-bottom: 15px;
+    margin-bottom: 50px;
     text-align: center;
     vertical-align: top;
     display: inline-block;
@@ -17,6 +17,7 @@
 
 #indexdiv2{
     /* margin-top: 50px; */
+    height: auto;
     padding-top: 50px;
     margin-left: 150px;
     margin-right: 150px;
@@ -54,9 +55,12 @@
 }
 
 .legal{
+    margin-top: 120px;
+    bottom: 0;
+    left:0;
     height: 100px;
     /* border: 1px solid black; */
-    margin-top: 5px;
-    margin-left: 150px;
-    margin-right: 150px;
+    background-color: #3d3d3d;
+    border: 1px solid black;
+    border-radius: 20px 20px 0px 0px;
 }
