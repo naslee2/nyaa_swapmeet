@@ -32,6 +32,7 @@ export class DbaddComponent implements OnInit {
       rprice: "",
       currency: "",
       notes: "",
+      picture: []
     }   
     this.sessionChecker();
   }
@@ -59,27 +60,15 @@ export class DbaddComponent implements OnInit {
     })
   }
 
-  // login(){ // login checker
-  //   this._httpService.cast.subscribe(data => { 
-  //     if (data){
-  //       if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){ //why does this work?
-  //         this.sessionData = data['data'];
-  //         this.sessioncheck= true;
-  //         // this._router.navigate(['/databaseadd']);
-  //       }
-  //       else{
-  //         this.sessioncheck= false;
-  //         this._router.navigate(['/']);
-  //       }
-  //     }
-  //     else{
-  //       this.sessioncheck= false;
-  //       this._router.navigate(['/']);
-  //     }
-  //   })
-  // }
+  onFileChange(event) {
+    let files: FileList = event.target.files;
+    let file : File = files[0];
+    console.log(file)
+    this.add['picture'] = file;
+  }
 
   addSubmit(){
+    console.log("test2", this.add)
     let sub = this._httpService.addFigure(this.add);
       sub.subscribe(data =>{
         if(data['message'] == 'success!'){

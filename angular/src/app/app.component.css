@@ -3,8 +3,8 @@
 }
 
 #main_component{
-    padding-top: 1px;
-    height: 100%;
+    padding: 1px;
+    height: 100;
     margin-left: 10px;
     margin-right: 10px;
     background-color: #3d3d3d;
@@ -17,6 +17,8 @@
     position: fixed;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+
 a{
     cursor: pointer;
 }

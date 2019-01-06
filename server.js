@@ -5,8 +5,18 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose'); 
 var path = require('path');
 var bcrypt =require('bcryptjs')
+// var cors = require('cors');
+var multer = require('multer');
 
 app.use(express.static( __dirname + '/angular/dist' ));
+
+var uploadpics = multer({ dest: './images/pictures' })
+
+
+// var corsOptions = {
+//     origin: '*',
+//     optionsSuccessStatus: 200
+// };
 
 var UserSchema = new mongoose.Schema({
     username: {type: String, required: true, minlength: 3, unique: true},
@@ -28,6 +38,7 @@ var FiguredataSchema = new mongoose.Schema({
     currencytype: {type: String, default: "USD"},
     notes: {type: String},
     pictures: {type: Array},
+    thumbnail: {type: String}
 },{timestamps: true});
 
 var ListingSchema = new mongoose.Schema({
@@ -38,7 +49,7 @@ var ListingSchema = new mongoose.Schema({
     listingnotes: {type: String},
     askingprice: {type: Number},
     currencytype: {type: String, default: "USD"},
-    pictures: {type: Array},
+    profilepic: { type: String },
 },{timestamps: true})
 
 mongoose.model('User', UserSchema, 'users');
@@ -129,6 +140,7 @@ app.post('/login', function(request, response){ //logins user and saves to mongo
 })
 
 app.post('/add', function(request, response){ //ADD FIGURE TO DB
+    console.log("Data",request.body)
     var name = request.body.name;
     var releasedate = request.body.releasedate;
     var announcedate = request.body.announcedate;
@@ -140,7 +152,8 @@ app.post('/add', function(request, response){ //ADD FIGURE TO DB
     var releaseprice = request.body.releaseprice;
     var currencytype = request.body.currencytype;
     var notes = request.body.notes;
-
+    var pictures = request.body.picture;
+    
     var newfigure = new Figuredata(
         {
         name: name,
@@ -153,7 +166,8 @@ app.post('/add', function(request, response){ //ADD FIGURE TO DB
         distributor: distributor,
         releaseprice: releaseprice,
         currencytype: currencytype,
-        notes: notes
+        notes: notes,
+        pictures: pictures
         }
     )
     newfigure.save(function(error){

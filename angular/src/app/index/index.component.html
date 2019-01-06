@@ -1,10 +1,13 @@
 <div id="indexdiv">
+
   <div id="indexdiv2">
+
       <div class="titlediv">
           <h3>Figure Database</h3>
       </div>
 
       <div class="datadiv">
+
         <div class="searchoptions">
           <input class="searchinput" type="text" placeholder="Figure Type"> <!-- PLACEHOLDER FOR DROPDOWN -->
           <input class="searchinput" type="text" placeholder="Manufacturer"> <!-- PLACEHOLDER FOR DROPDOWN-->
@@ -12,10 +15,21 @@
           <input class="searchinput" type="text" placeholder="Price"> <!--PLACEHOLDER FOR DROPDOWN-->
           <!-- <input class="searchinputsubmit" type="submit"> -->
         </div>
+
         <div class="info" *ngFor="let x of figureData">
+          <img>
           <a [routerLink]="['/db_profile', x._id]" >{{x['name']}}</a>
         </div>
-      </div>
 
+      </div>
+      <div id="legalfooter">
+        <div class="legalinkdiv">
+          <a class="legallinks">About Us</a><a class="legallinks">Help</a><a class="legallinks">Terms of Service</a><a class="legallinks">Privacy Policy</a>
+        </div>
+        <div class="legaldisclaimer" >
+          <p class="disclaimerinfo">&#9400; 2018 KS Inc. US Patent Pending. All Rights Reserved | Website designed by KillSimon. Website coded by Nathan Lee</p>
+          <p class="disclaimerinfo">Trademarks are property of their respective owners</p>
+        </div>
+      </div>
   </div>  
 </div>

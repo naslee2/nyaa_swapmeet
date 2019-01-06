@@ -42,7 +42,7 @@ export class HttpService {
   }
 
   addFigure(add){
-    // console.log("haha")
+    console.log("haha", add)
     return this._http.post('/add', {
       name: add.name, 
       releasedate: add.rdate, 
@@ -54,7 +54,8 @@ export class HttpService {
       distributor: add.distributor, 
       releaseprice: add.rprice, 
       currencytype: add.currency, 
-      notes: add.notes
+      notes: add.notes,
+      picture: add.picture['name']
     });
   }
 
@@ -72,7 +73,7 @@ export class HttpService {
   }
 
   deleteFigureData(id){
-    console.log("id",id);
+    // console.log("id",id);
     return this._http.delete('/delete/'+id);
   }
 

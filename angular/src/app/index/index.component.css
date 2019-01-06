@@ -13,12 +13,13 @@
 #indexdiv{
     color: white;
     height: 100%;
+    /* padding-top: 50px; */
 }
 
 #indexdiv2{
     /* margin-top: 50px; */
-    height: auto;
-    padding-top: 50px;
+    height: 100%;
+    /* padding-top: 50px; */
     margin-left: 150px;
     margin-right: 150px;
     background-color: #1d1d1d;
@@ -29,6 +30,7 @@
     padding: 10px 10px 10px 10px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
+    padding-top: 50px;
 }
 
 .searchoptions{
@@ -54,13 +56,32 @@
     padding-bottom: 20px;
 }
 
-.legal{
-    margin-top: 120px;
+#legalfooter{
+    height: 120px;
     bottom: 0;
-    left:0;
-    height: 100px;
-    /* border: 1px solid black; */
+    margin-top: 150px;
     background-color: #3d3d3d;
-    border: 1px solid black;
-    border-radius: 20px 20px 0px 0px;
+        border-radius: 20px 20px 0px 0px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.legaldisclaimer{
+    margin-top: 20px;
+}
+
+.disclaimerinfo{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.legalinkdiv{
+    padding-top: 20px;
+}
+
+.legallinks{
+    margin-left: 50px;
+    margin-right: 50px;
+    cursor: pointer;
+    margin-bottom: 20px;
 }
