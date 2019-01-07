@@ -5,18 +5,22 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose'); 
 var path = require('path');
 var bcrypt =require('bcryptjs')
-// var cors = require('cors');
 var multer = require('multer');
 
 app.use(express.static( __dirname + '/angular/dist' ));
 
-var uploadpics = multer({ dest: './images/pictures' })
+var DIR = './images/pictures';
 
-
-// var corsOptions = {
-//     origin: '*',
-//     optionsSuccessStatus: 200
-// };
+var storage = multer.diskStorage({
+    // destination
+    destination: function (req, file, cb) {
+      cb(null, './images/pictures/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname);
+    }
+  });
+  var upload = multer({ storage: storage });
 
 var UserSchema = new mongoose.Schema({
     username: {type: String, required: true, minlength: 3, unique: true},
@@ -68,6 +72,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: {maxAge: null}
 }));
+
 // mongoose.set('useCreateIndex', true);
 mongoose.connect('mongodb://localhost/user',{useNewUrlParser: true });
 
@@ -139,8 +144,9 @@ app.post('/login', function(request, response){ //logins user and saves to mongo
     })
 })
 
-app.post('/add', function(request, response){ //ADD FIGURE TO DB
-    console.log("Data",request.body)
+app.post('/add', upload.array("uploads[]",10), function(request, response){ //ADD FIGURE TO DB
+
+    var dict = request.files;
     var name = request.body.name;
     var releasedate = request.body.releasedate;
     var announcedate = request.body.announcedate;
@@ -152,32 +158,46 @@ app.post('/add', function(request, response){ //ADD FIGURE TO DB
     var releaseprice = request.body.releaseprice;
     var currencytype = request.body.currencytype;
     var notes = request.body.notes;
-    var pictures = request.body.picture;
     
-    var newfigure = new Figuredata(
-        {
-        name: name,
-        releasedate: releasedate,
-        announcedate: announcedate,
-        brand: brand,
-        series: series,
-        number: number,
-        manufacturer: manufacturer,
-        distributor: distributor,
-        releaseprice: releaseprice,
-        currencytype: currencytype,
-        notes: notes,
-        pictures: pictures
+    if(request.files == null){
+        console.log("errortype", request)
+    }
+    else{
+        console.log("else")
+        var newfigure = new Figuredata(
+            {
+            name: name,
+            releasedate: releasedate,
+            announcedate: announcedate,
+            brand: brand,
+            series: series,
+            number: number,
+            manufacturer: manufacturer,
+            distributor: distributor,
+            releaseprice: releaseprice,
+            currencytype: currencytype,
+            notes: notes,
+            pictures: []
+            }
+        )
+        for(var i = 0; i < dict.length; i++){
+            for(var key in dict[i]){
+                if(key == "path"){
+                    newfigure.pictures.push(dict[i][key]); 
+
+                }
+            }
         }
-    )
-    newfigure.save(function(error){
-        if(error){
-            response.json({message: "Error", error: error});
-        }
-        else{
-            response.json({message: "success!", data: newfigure});
-        }
-    });
+        console.log("log",newfigure.pictures)
+        newfigure.save(function(error){
+            if(error){
+                response.json({message: "Error", error: error});
+            }
+            else{
+                response.json({message: "success!", data: newfigure});
+            }
+        });
+    }
 })
 
 app.put("/edit/:id", function(request, response){ //EDIT FIGURE TO DB

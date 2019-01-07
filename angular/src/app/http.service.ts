@@ -43,20 +43,7 @@ export class HttpService {
 
   addFigure(add){
     console.log("haha", add)
-    return this._http.post('/add', {
-      name: add.name, 
-      releasedate: add.rdate, 
-      announcedate: add.adate, 
-      brand: add.brand, 
-      series: add.series, 
-      number: add.number, 
-      manufacturer: add.manufacturer, 
-      distributor: add.distributor, 
-      releaseprice: add.rprice, 
-      currencytype: add.currency, 
-      notes: add.notes,
-      picture: add.picture['name']
-    });
+    return this._http.post('/add', add);
   }
 
   getFigures(){

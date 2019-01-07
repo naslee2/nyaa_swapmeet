@@ -12,6 +12,8 @@ export class DbaddComponent implements OnInit {
   sessionData: any;
   sessioncheck: any;
   add: any;
+  addForm: FormData = new FormData;
+  filesToUpload: Array<File> = []
 
   constructor(
     private _router: Router,
@@ -32,7 +34,6 @@ export class DbaddComponent implements OnInit {
       rprice: "",
       currency: "",
       notes: "",
-      picture: []
     }   
     this.sessionChecker();
   }
@@ -61,15 +62,24 @@ export class DbaddComponent implements OnInit {
   }
 
   onFileChange(event) {
-    let files: FileList = event.target.files;
-    let file : File = files[0];
-    console.log(file)
-    this.add['picture'] = file;
+    if(event.target.files && event.target.files.length >0){
+      console.log(event.target.files)
+      this.filesToUpload = <Array<File>>event.target.files
+    }
   }
 
   addSubmit(){
-    console.log("test2", this.add)
-    let sub = this._httpService.addFigure(this.add);
+    const files: Array<File> = this.filesToUpload;
+    console.log(files);
+    for(let i =0; i < files.length; i++){
+      this.addForm.append( "uploads[]", files[i], files[i]['name']);
+    }
+    for(let key in this.add){
+      const value = this.add[key]
+      this.addForm.append(key, value);
+    }
+
+    let sub = this._httpService.addFigure(this.addForm);
       sub.subscribe(data =>{
         if(data['message'] == 'success!'){
           this._router.navigate(['/index']);
@@ -82,5 +92,21 @@ export class DbaddComponent implements OnInit {
         }
       })
   }
+
+  // addSubmit(){
+  //   console.log("test2", this.add)
+  //   let sub = this._httpService.addFigure(this.add);
+  //     sub.subscribe(data =>{
+  //       if(data['message'] == 'success!'){
+  //         this._router.navigate(['/index']);
+  //       }
+  //       else if(data['message'] == 'Error'){
+  //         this.error = "Database update failed!"
+  //       }
+  //       else{
+  //         this.error = "Database update failed!"
+  //       }
+  //     })
+  // }
 
 }
