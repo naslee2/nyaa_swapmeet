@@ -17,7 +17,7 @@ var storage = multer.diskStorage({
       cb(null, './images/pictures/')
     },
     filename: function (req, file, cb) {
-      cb(null, file.originalname);
+      cb(null, file.fieldname+"-"+Date.now());
     }
   });
   var upload = multer({ storage: storage });
@@ -41,7 +41,7 @@ var FiguredataSchema = new mongoose.Schema({
     releaseprice: {type: Number},
     currencytype: {type: String, default: "USD"},
     notes: {type: String},
-    pictures: {type: Array},
+    pictures: {type: String},
     thumbnail: {type: String}
 },{timestamps: true});
 
@@ -144,9 +144,8 @@ app.post('/login', function(request, response){ //logins user and saves to mongo
     })
 })
 
-app.post('/add', upload.array("uploads[]",10), function(request, response){ //ADD FIGURE TO DB
-
-    var dict = request.files;
+app.post('/add', upload.array("upload",10), function(request, response){ //ADD FIGURE TO DB
+    var dict = [];
     var name = request.body.name;
     var releasedate = request.body.releasedate;
     var announcedate = request.body.announcedate;
@@ -163,7 +162,7 @@ app.post('/add', upload.array("uploads[]",10), function(request, response){ //AD
         console.log("errortype", request)
     }
     else{
-        console.log("else")
+        console.log("else",request.body)
         var newfigure = new Figuredata(
             {
             name: name,
@@ -177,18 +176,22 @@ app.post('/add', upload.array("uploads[]",10), function(request, response){ //AD
             releaseprice: releaseprice,
             currencytype: currencytype,
             notes: notes,
-            pictures: []
+            pictures: dict
             }
         )
-        for(var i = 0; i < dict.length; i++){
-            for(var key in dict[i]){
-                if(key == "path"){
-                    newfigure.pictures.push(dict[i][key]); 
 
-                }
-            }
-        }
-        console.log("log",newfigure.pictures)
+        // var dictarray = [];
+        // for(var i = 0; i < dict.length; i++){
+        //     for(var key in dict[i]){
+        //         if(key == "path"){
+        //             // newfigure['pictures'].push(dict[i][key]); 
+        //             dictarray.push(dict[i][key]);
+        //             console.log(dictarray);
+        //             newfigure['pictures']= dictarray;
+        //         }
+        //     }
+        // }
+        console.log("log",newfigure);
         newfigure.save(function(error){
             if(error){
                 response.json({message: "Error", error: error});

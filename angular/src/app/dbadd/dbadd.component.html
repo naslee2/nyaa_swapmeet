@@ -5,10 +5,10 @@
         <input class="input-section" type="text" name="add.name" autocomplete="off" [(ngModel)]="add.name" /><br>
 
         <p>Release Date</p>
-        <input class="input-section" type="date" name="add.rdate" autocomplete="off" [(ngModel)]="add.rdate"/><br>
+        <input class="input-section" type="date" name="add.rdate" autocomplete="off" [(ngModel)]="add.releasedate"/><br>
 
         <p>Announce Date</p>
-        <input class="input-section" type="date" name="add.adate" autocomplete="off" [(ngModel)]="add.adate"/><br>
+        <input class="input-section" type="date" name="add.adate" autocomplete="off" [(ngModel)]="add.announcedate"/><br>
 
         <p>Brand</p>
         <input class="input-section" type="text" name="add.brand" autocomplete="off" [(ngModel)]="add.brand"/><br>
@@ -26,10 +26,10 @@
         <input class="input-section" type="text" name="add.distributor" autocomplete="off" [(ngModel)]="add.distributor"/><br>
 
         <p>Release Price</p>
-        <input class="input-section" type="number" min="0.01" step=0.01 value='0.00' placeholder='0.00' name="add.rprice" autocomplete="off" [(ngModel)]="add.rprice"/><br>
+        <input class="input-section" type="number" min="0.01" step=0.01 value='0.00' placeholder='0.00' name="add.releaseprice" autocomplete="off" [(ngModel)]="add.rprice"/><br>
 
         <p>Currency</p>
-        <select class="input-section" name="add.currency" autocomplete="off" [(ngModel)]="add.currency">
+        <select class="input-section" name="add.currency" autocomplete="off" [(ngModel)]="add.currencytype">
             <option value="USD">&#x24; USD</option>
             <option value="JPY">&#xa5; JPY</option>
             <option value="EUR">&#x20AC; EUR</option>

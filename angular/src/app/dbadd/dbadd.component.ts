@@ -24,15 +24,15 @@ export class DbaddComponent implements OnInit {
     this.sessionData = {};
     this.add = {
       name: "", 
-      rdate: "", 
-      adate: "",
+      releasedate: "", 
+      announcedate: "",
       brand: "",
       series: "",
       number: "",
       manufacturer: "",
       distributor: "",
-      rprice: "",
-      currency: "",
+      releaseprice: "",
+      currencytype: "",
       notes: "",
     }   
     this.sessionChecker();
@@ -72,7 +72,7 @@ export class DbaddComponent implements OnInit {
     const files: Array<File> = this.filesToUpload;
     console.log(files);
     for(let i =0; i < files.length; i++){
-      this.addForm.append( "uploads[]", files[i], files[i]['name']);
+      this.addForm.append( "upload", files[i], files[i]['name']);
     }
     for(let key in this.add){
       const value = this.add[key]
@@ -92,21 +92,4 @@ export class DbaddComponent implements OnInit {
         }
       })
   }
-
-  // addSubmit(){
-  //   console.log("test2", this.add)
-  //   let sub = this._httpService.addFigure(this.add);
-  //     sub.subscribe(data =>{
-  //       if(data['message'] == 'success!'){
-  //         this._router.navigate(['/index']);
-  //       }
-  //       else if(data['message'] == 'Error'){
-  //         this.error = "Database update failed!"
-  //       }
-  //       else{
-  //         this.error = "Database update failed!"
-  //       }
-  //     })
-  // }
-
 }
