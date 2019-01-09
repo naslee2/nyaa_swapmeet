@@ -14,6 +14,7 @@ export class DbaddComponent implements OnInit {
   add: any;
   addForm: FormData = new FormData;
   filesToUpload: Array<File> = []
+  filesToUpload2: any;
 
   constructor(
     private _router: Router,
@@ -68,16 +69,31 @@ export class DbaddComponent implements OnInit {
     }
   }
 
+  // onFileChange2(event2){
+  //   if(event2.target.files && event2.target.files.length >0){
+  //     console.log(event2.target.files)
+  //     this.filesToUpload2 = <Array<File>>event2.target.files
+  //   }
+  // }
+
   addSubmit(){
     const files: Array<File> = this.filesToUpload;
+    // const thumb:Array<File> = this.filesToUpload2;
     console.log(files);
-    for(let i =0; i < files.length; i++){
-      this.addForm.append( "upload", files[i], files[i]['name']);
+    // console.log(thumb);
+    if(files.length > 0){
+      for(let i =0; i < files.length; i++){
+        this.addForm.append( "upload", files[i], files[i]['name']);
+      }
     }
+    // if(thumb.length > 0){
+    //   this.addForm.append("upload2", thumb[0], thumb[0]['name'])
+    // }
     for(let key in this.add){
       const value = this.add[key]
       this.addForm.append(key, value);
     }
+    console.log(this.addForm)
 
     let sub = this._httpService.addFigure(this.addForm);
       sub.subscribe(data =>{

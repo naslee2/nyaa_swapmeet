@@ -9,8 +9,6 @@ var multer = require('multer');
 
 app.use(express.static( __dirname + '/angular/dist' ));
 
-var DIR = './images/pictures';
-
 var storage = multer.diskStorage({
     // destination
     destination: function (req, file, cb) {
@@ -21,6 +19,16 @@ var storage = multer.diskStorage({
     }
   });
   var upload = multer({ storage: storage });
+
+  var storage2 = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './images/thumbnails/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, "image"+"-"+Date.now()+"-"+file.originalname);
+    }
+  });
+  var upload2 = multer({ storage2: storage2 });
 
 var UserSchema = new mongoose.Schema({
     username: {type: String, required: true, minlength: 3, unique: true},
@@ -186,10 +194,10 @@ app.post('/add', upload.array("upload",10), function(request, response){ //ADD F
             releaseprice: releaseprice,
             currencytype: currencytype,
             notes: notes,
-            pictures: dictarray
+            pictures: dictarray,
             }
         )
-        console.log("log",newfigure);
+        // console.log("log",newfigure);
         newfigure.save(function(error){
             if(error){
                 response.json({message: "Error", error: error});

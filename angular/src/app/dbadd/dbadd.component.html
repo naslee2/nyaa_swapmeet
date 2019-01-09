@@ -45,6 +45,8 @@
         <input class="input-section" type="text" name="add.notes" autocomplete="off" [(ngModel)]="add.notes" /><br>
         <p>Upload Picture</p>
         <input type="file" name="pic" id="pic" accept="image/*" (change)="onFileChange($event)" #fileInput multiple enctype="multipart/form-data"><br>
+        <!-- <p>Upload Thumbnail</p> -->
+        <!-- <input type="file" name="pic2" id="pic2" accept="image/*" (change)="onFileChange2($event)" #fileInput2 enctype="multipart/form-data"><br> -->
         <input class="submit-button" type="submit">
     </form>
     <p>{{error}}</p>
