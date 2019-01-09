@@ -1,3 +1,5 @@
+<div id="edit-div">
+
 <div id="input-div">
     <h3>Edit figure inside database</h3>
     <form autocomplete="off" (submit)="editFigureData()">
@@ -44,14 +46,23 @@
         
         <p>Notes</p>
         <input class="input-section" type="text" name="add.notes" autocomplete="off" [(ngModel)]="edit.notes" /><br>
-
-        <!-- <p>Upload Picture</p>
-        <input type="file" name="pic" accept="image/*"><br> -->
         <input class="submit-button" type="submit">
     </form>
+    <div id="photo-manage">
+        <form>
+            <p>Update Profile Picture</p>
+            <form (submit)="profilepicEdit()">
+                <input type="file" name="pic" id="pic" accept="image/*" (change)="onFileChange($event)" #fileInput enctype="multipart/form-data"><br>
+                <input class="submit-button" type="submit">
+            </form>
+        </form>
+
+    </div>
     <div id="deletesection">
         <p>Delete Figure Data</p>
         <button (click)="deleteFigureData()">Delete</button>
     </div>
     <p>{{error}}</p>
+</div>
+
 </div>

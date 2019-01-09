@@ -28,7 +28,7 @@ var storage = multer.diskStorage({
       cb(null, "image"+"-"+Date.now()+"-"+file.originalname);
     }
   });
-  var upload2 = multer({ storage2: storage2 });
+  var upload2 = multer({ storage: storage2 });
 
 var UserSchema = new mongoose.Schema({
     username: {type: String, required: true, minlength: 3, unique: true},
@@ -234,6 +234,16 @@ app.put("/edit/:id", function(request, response){ //EDIT FIGURE TO DB
         })
     })
 })
+
+app.put("/editFigureProfilePic/:id", upload2.single("profile"), function(request, response){
+    console.log("data",request.file);
+    if(error){
+        response.json({message: "Error", error: err})
+    }
+    else{
+        response.json({message: "success"});
+    }
+});
 
 app.delete("/delete/:id", function(request, response){ //DELETE FIGURE TO DB
     Figuredata.deleteOne({_id: request.params.id}, function(err){

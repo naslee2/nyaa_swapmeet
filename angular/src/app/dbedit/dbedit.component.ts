@@ -14,6 +14,8 @@ export class DbeditComponent implements OnInit {
   sessionData: any;
   sessioncheck: any;
   currency: any;
+  filesToUpload: Array<File> = []
+  addProfilePic: FormData = new FormData;
   // objectkeys = Object.keys;
 
   constructor(
@@ -41,7 +43,6 @@ export class DbeditComponent implements OnInit {
       releaseprice: "",
       currencytype: "",
       notes: "",
-      pictures: [],
     }
     // this.currency = ["USD", "JPY", "EUR", "AUD", "CAD", "GBP", "HKD", "KRW", "SGD", "NTD"]
     this.currency = []
@@ -75,30 +76,6 @@ export class DbeditComponent implements OnInit {
     })
   }
 
-  //ORIGINALLY THIS WAS SUPPOSED TO GET CASTED OBSERVABLE FROM HTTP.SERVICE.TS BUT CASTED DATA DISSAPEAR WHEN WEB PAGE RELOADED AND REINITALIZED.
-  // login(){
-  //   this._httpService.cast.subscribe(data => {
-  //     // console.log("data",data)
-  //     if(data){
-  //       if(data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
-  //         this.sessionData = data['data'];
-  //         this.sessioncheck= true;
-  //       }
-  //       else{
-  //         this.sessioncheck= false;
-  //         // this._router.navigate(['/db_profile', this.id.id]);
-  //         this._router.navigate(['/']);
-  //       }
-  //     }
-  //     else{
-  //       // console.log("else")
-  //       this.sessioncheck= false;
-  //       this._router.navigate(['/db_profile', this.id.id]);
-  //       // this._router.navigate(['/']);
-  //     }
-  //   })
-  // }
-
   getDetails(){
     let obs = this._httpService.getFigureProfile(this.id);
     obs.subscribe(data => {
@@ -113,6 +90,31 @@ export class DbeditComponent implements OnInit {
         this.edit['announcedate'] = this.edit['announcedate'].slice(0,10);
       }
       // console.log(this.edit)
+    })
+  }
+
+  onFileChange(event) {
+    if(event.target.files && event.target.files.length >0){
+      console.log(event.target.files)
+      this.filesToUpload = <Array<File>>event.target.files
+    }
+  }
+
+  profilepicEdit(){
+    var files: Array<File> = this.filesToUpload;
+    console.log(files);
+    this.addProfilePic.append("profile", files[0])
+    let figurethumbpicEdit = this._httpService.editFigureProfilePic(this.addProfilePic, this.id.id);
+    figurethumbpicEdit.subscribe(data =>{
+      if(data['message'] == 'success'){
+        this._router.navigate(['/db_profile', this.id.id]);
+      }
+      else if (data['message'] == 'Error'){
+        this.error = data['error']['message']
+      }
+      else if(data['error']['code'] == 11000){
+        this.error = data['error']['errmsg']
+      }
     })
   }
 
@@ -147,5 +149,29 @@ export class DbeditComponent implements OnInit {
     })
 
   }
+
+  //ORIGINALLY THIS WAS SUPPOSED TO GET CASTED OBSERVABLE FROM HTTP.SERVICE.TS BUT CASTED DATA DISSAPEAR WHEN WEB PAGE RELOADED AND REINITALIZED.
+  // login(){
+  //   this._httpService.cast.subscribe(data => {
+  //     // console.log("data",data)
+  //     if(data){
+  //       if(data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
+  //         this.sessionData = data['data'];
+  //         this.sessioncheck= true;
+  //       }
+  //       else{
+  //         this.sessioncheck= false;
+  //         // this._router.navigate(['/db_profile', this.id.id]);
+  //         this._router.navigate(['/']);
+  //       }
+  //     }
+  //     else{
+  //       // console.log("else")
+  //       this.sessioncheck= false;
+  //       this._router.navigate(['/db_profile', this.id.id]);
+  //       // this._router.navigate(['/']);
+  //     }
+  //   })
+  // }
   
 }

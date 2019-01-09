@@ -6,4 +6,14 @@ form{
 .input-section{
     width: 500px;
     height: 20px;
+   
+}
+
+#input-div{
+    margin-top: 50px;
+}
+
+#photo-manage{
+    vertical-align: top;
+    display: inline-block;
 }
