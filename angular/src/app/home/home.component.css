@@ -1,10 +1,10 @@
 #home_background {
     background-image: url("../../assets/figure-hatsune-miku-trick-or-miku-vocaloid-figure-primary.jpg");
     background-color: #3d3d3d;
-    height: 100vh;
+    height: auto 100%;
     width: auto 100vw;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     display: flex;
 }
 

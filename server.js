@@ -195,6 +195,7 @@ app.post('/add', upload.array("upload",10), function(request, response){ //ADD F
             currencytype: currencytype,
             notes: notes,
             pictures: dictarray,
+            thumbnail: ""
             }
         )
         // console.log("log",newfigure);
@@ -237,12 +238,17 @@ app.put("/edit/:id", function(request, response){ //EDIT FIGURE TO DB
 
 app.put("/editFigureProfilePic/:id", upload2.single("profile"), function(request, response){
     console.log("data",request.file);
-    if(error){
-        response.json({message: "Error", error: err})
-    }
-    else{
-        response.json({message: "success"});
-    }
+    Figuredata.findOne({_id: request.params.id}, function(error, figures){
+        figures.thumbnail = request.file["path"];
+        figures.save(function(error){
+            if(error){
+                response.json({message: "Error", error: err})
+            }
+            else{
+                response.json({message: "success"});
+            }
+        })
+    })
 });
 
 app.delete("/delete/:id", function(request, response){ //DELETE FIGURE TO DB
