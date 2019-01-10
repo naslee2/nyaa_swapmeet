@@ -3,8 +3,10 @@
 }
 
 #main_component{
-    padding: 1px;
-    height: 100;
+    /* padding: 1px; */
+    /* height: 100%; */
+    height: auto 100vh;
+    width: auto 100vw;
     margin-left: 10px;
     margin-right: 10px;
     background-color: #3d3d3d;
@@ -103,9 +105,9 @@ li a:hover, .dropdown:hover .dropbtn {
     border:0;
 }
 
-#searchform{
+/* #searchform{
     
-}
+} */
 
 .submit-button{
     background-color:transparent;

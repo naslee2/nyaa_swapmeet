@@ -1,17 +1,35 @@
 form{
-    text-align:left;
+    text-align:center;
     display:inline-block;
     
 }
 
+#login-div{
+    height: 100vh;
+    width: auto 100vw;
+    text-align: center;
+    background-image: url("../../assets/figure-hatsune-miku-trick-or-miku-vocaloid-figure-primary.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
 .input-section{
-    width: 500px;
+    width: 400px;
     height: 20px;
 }
 
 #login_form{
-    margin-top: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #1d1d1d;
     color: white;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    padding: 20px;
+    margin-left: 35%;
+    margin-right: 35%;
+    border-radius: 20px;
 }
 
 #login_tip{
