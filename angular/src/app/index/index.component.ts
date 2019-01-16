@@ -25,7 +25,7 @@ export class IndexComponent implements OnInit {
     let x = this._httpService.getFigures();
     x.subscribe(data => {
       this.figureData = data['data']
-      // console.log("all data", this.figureData)
+      console.log("all data", this.figureData)
     })
   }
 
