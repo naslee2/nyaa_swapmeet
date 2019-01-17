@@ -1,4 +1,8 @@
+#listdiv{
+    height: 100%;
+}
+
 #listlinks{
-    margin-top: 50px;
+    padding-top: 50px;
     color: white;
 }
