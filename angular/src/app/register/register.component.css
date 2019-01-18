@@ -1,7 +1,6 @@
 form{
     text-align:left;
     display:inline-block;
-    
 }
 
 .input-section{
@@ -10,7 +9,7 @@ form{
 }
 
 .register_form{
-    margin-top: 50px;
+    padding-top: 50px;
     color: white;
 }
 

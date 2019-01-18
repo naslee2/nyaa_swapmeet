@@ -1,19 +1,21 @@
-<div class="register_form">
-  <h3>Register</h3>
-  <form autocomplete="off" (submit)="registerSubmit()">
-      <p>Email: </p>
-      <input class="input-section" type="email" name="register.email" autocomplete="email" [(ngModel)]="register.email"/><br>
-      <p>Username</p> 
-      <input class="input-section" type="text" name="register.username"[(ngModel)]="register.username"/><br>
-      <p>Password: </p>
-      <input class="input-section" type="password" name="register.reg_password" autocomplete="off" [(ngModel)]="register.reg_password"/><br>
-      <p>Confirm Password: </p>
-      <input class="input-section" type="password" name="register.check_password" autocomplete="off" [(ngModel)]="register.check_password"/><br>
-      <input class="submit-button" type="submit">
-  </form>
-  <div>
-      <p>Already have account? Then <a [routerLink]="['/login']">Login!</a></p>
-      <p>{{error}}</p>
+<div id="register_div">
+    <div class="register_form">
+    <h3>Register</h3>
+    <form autocomplete="off" (submit)="registerSubmit()">
+        <p>Email: </p>
+        <input class="input-section" type="email" name="register.email" autocomplete="email" [(ngModel)]="register.email"/><br>
+        <p>Username</p> 
+        <input class="input-section" type="text" name="register.username"[(ngModel)]="register.username"/><br>
+        <p>Password: </p>
+        <input class="input-section" type="password" name="register.reg_password" autocomplete="off" [(ngModel)]="register.reg_password"/><br>
+        <p>Confirm Password: </p>
+        <input class="input-section" type="password" name="register.check_password" autocomplete="off" [(ngModel)]="register.check_password"/><br>
+        <input class="submit-button" type="submit">
+    </form>
+    <div>
+        <p>Already have account? Then <a [routerLink]="['/login']">Login!</a></p>
+        <p>{{error}}</p>
+        </div>
     </div>
 </div>
 
