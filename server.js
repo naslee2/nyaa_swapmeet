@@ -13,7 +13,7 @@ app.use(express.static( __dirname + '/angular/dist' ));
 var storage = multer.diskStorage({
     // destination
     destination: function (req, file, cb) {
-      cb(null, './angular/src/images/pictures')
+      cb(null, './angular/src/assets/images/pictures')
     },
     filename: function (req, file, cb) {
       cb(null, "image"+"-"+Date.now()+"-"+file.originalname);
@@ -23,7 +23,7 @@ var storage = multer.diskStorage({
 
   var storage2 = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './angular/src/images/thumbnails')
+      cb(null, './angular/src/assets/images/thumbnails')
     },
     filename: function (req, file, cb) {
       cb(null, "image"+"-"+Date.now()+"-"+file.originalname);
@@ -238,9 +238,13 @@ app.put("/edit/:id", function(request, response){ //EDIT FIGURE TO DB
 })
 
 app.put("/editFigureProfilePic/:id", upload2.single("profile"), function(request, response){
-    console.log("data",request.file);
+    // console.log("data",request.file);
     Figuredata.findOne({_id: request.params.id}, function(error, figures){
-        figures.thumbnail = request.file["path"];
+        console.log(request.file["path"]);
+        var filepath = request.file["path"];
+        filepath = filepath.slice(12)
+        console.log(filepath)
+        figures.thumbnail = filepath;
         figures.save(function(error){
             if(error){
                 response.json({message: "Error", error: err})
