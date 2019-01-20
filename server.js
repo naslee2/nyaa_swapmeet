@@ -171,8 +171,9 @@ app.post('/add', upload.array("upload",10), function(request, response){ //ADD F
         for(var i = 0; i < dict.length; i++){
             for(var key in dict[i]){
                 if(key == "path"){
-                    // newfigure['pictures'].push(dict[i][key]); 
-                    dictarray.push(dict[i][key]);
+                    var dictpath = dict[i][key];
+                    dictpath = dictpath.slice(12);
+                    dictarray.push(dictpath);
                 }
             }
         }
@@ -278,6 +279,7 @@ app.get('/session', function(request, response){ //sends request.session data
 
 app.get('/getFigures', function(request, response){
     Figuredata.find({}, null, {sort: 'number'}, function(err, task){
+        
         if(err){
             response.json({message: "Error", error: err});
         }
