@@ -18,8 +18,9 @@
 
         <div class="info" *ngFor="let x of figureData">
             <!-- <img src="assets/images/thumbnails/image-1547882841046-testprofilepic.jpg"> -->
-            <img src= "{{x['thumbnail']}}" >
-          <a [routerLink]="['/db_profile', x._id]" >{{x['name']}}</a>
+            
+          <a [routerLink]="['/db_profile', x._id]" ><img class="img-radius" src= "{{x['thumbnail']}}" ></a>
+          <!-- {{x['name']}} -->
         </div>
 
       </div>
