@@ -6,14 +6,16 @@ var mongoose = require('mongoose');
 var path = require('path');
 var bcrypt =require('bcryptjs')
 var multer = require('multer');
+var multer = require('./images/pictures');
 
 
 app.use(express.static( __dirname + '/angular/dist' ));
+app.use(express.static('images'));
 
 var storage = multer.diskStorage({
     // destination
     destination: function (req, file, cb) {
-      cb(null, './angular/src/assets/images/pictures')
+      cb(null, './images/pictures')
     },
     filename: function (req, file, cb) {
       cb(null, "image"+"-"+Date.now()+"-"+file.originalname);
@@ -23,7 +25,7 @@ var storage = multer.diskStorage({
 
   var storage2 = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './angular/src/assets/images/thumbnails')
+      cb(null, './images/thumbnails')
     },
     filename: function (req, file, cb) {
       cb(null, "image"+"-"+Date.now()+"-"+file.originalname);
