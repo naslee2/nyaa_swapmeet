@@ -6,8 +6,6 @@ var mongoose = require('mongoose');
 var path = require('path');
 var bcrypt =require('bcryptjs')
 var multer = require('multer');
-var multer = require('./images/pictures');
-
 
 app.use(express.static( __dirname + '/angular/dist' ));
 app.use(express.static('images'));
@@ -174,7 +172,7 @@ app.post('/add', upload.array("upload",10), function(request, response){ //ADD F
             for(var key in dict[i]){
                 if(key == "path"){
                     var dictpath = dict[i][key];
-                    dictpath = dictpath.slice(12);
+                    dictpath = dictpath.slice(7);
                     dictarray.push(dictpath);
                 }
             }
@@ -245,7 +243,7 @@ app.put("/editFigureProfilePic/:id", upload2.single("profile"), function(request
     Figuredata.findOne({_id: request.params.id}, function(error, figures){
         console.log(request.file["path"]);
         var filepath = request.file["path"];
-        filepath = filepath.slice(12)
+        filepath = filepath.slice(7)
         console.log(filepath)
         figures.thumbnail = filepath;
         figures.save(function(error){
