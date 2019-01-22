@@ -10,6 +10,7 @@ import { HttpService } from '../http.service';
 export class DbprofileComponent implements OnInit {
   id: any;
   figureData: any;
+  // figureData_img: any;
   sessionData: any;
   sessioncheck: any;
   constructor(
@@ -26,6 +27,7 @@ export class DbprofileComponent implements OnInit {
   ngOnInit() {
     this.sessionData = {};
     this.figureData = [];
+    // this.figureData_img = [];
     this.sessionChecker();
     this.getDetails();
   }

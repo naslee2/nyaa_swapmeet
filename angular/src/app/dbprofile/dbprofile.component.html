@@ -1,5 +1,9 @@
 <div id="profile">
     <div *ngFor="let x of figureData">
+        <img src="{{x['pictures']}}" alt="img">
+    </div>
+
+    <div *ngFor="let x of figureData">
         <p><strong>Name:</strong> {{x['name']}}</p>
         <p><strong>Release Date: </strong> {{x['releasedate']}}</p>
         <p><strong>Announce Date:</strong> {{x['announcedate']}}</p>
