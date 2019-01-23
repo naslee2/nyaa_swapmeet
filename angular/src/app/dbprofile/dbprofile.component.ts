@@ -36,8 +36,8 @@ export class DbprofileComponent implements OnInit {
     let obs = this._httpService.getFigureProfile(this.id);
     obs.subscribe(data => {
       this.figureData.push(data['data']);
-      this.figureData_img = this.figureData['pictures']
-      // console.log(this.figureData);
+      this.figureData_img = this.figureData[0]['pictures']
+      console.log(this.figureData);
     })
   }
 
