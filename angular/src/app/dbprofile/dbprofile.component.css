@@ -2,3 +2,9 @@
     padding-top: 50px;
     color: white;
 }
+
+img{
+    height: 500px;
+    width: 500px;
+    vertical-align: top;
+}
