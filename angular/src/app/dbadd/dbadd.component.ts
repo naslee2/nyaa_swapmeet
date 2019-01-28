@@ -69,13 +69,6 @@ export class DbaddComponent implements OnInit {
     }
   }
 
-  // onFileChange2(event2){
-  //   if(event2.target.files && event2.target.files.length >0){
-  //     console.log(event2.target.files)
-  //     this.filesToUpload2 = <Array<File>>event2.target.files
-  //   }
-  // }
-
   addSubmit(){
     const files: Array<File> = this.filesToUpload;
     // const thumb:Array<File> = this.filesToUpload2;

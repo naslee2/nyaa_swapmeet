@@ -62,25 +62,4 @@ export class DbprofileComponent implements OnInit {
     })
   }
 
-  // login(){ // login checker
-  //   this._httpService.cast.subscribe(data => { 
-  //     console.log("dsd", data)
-  //     if (data){
-  //       if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){
-  //         // console.log("wow", data);
-  //         this.sessionData = data['data'];
-  //         this.sessioncheck= true;
-  //       }
-  //       else{
-  //         this.sessioncheck= false;
-  //         // console.log("lol")
-  //       }
-  //     }
-  //     else{
-  //       this.sessioncheck= false;
-  //       // console.log("haha")
-  //     }
-  //   })
-  // }
-
 }

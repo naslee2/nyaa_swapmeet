@@ -46,23 +46,6 @@ export class DashboardComponent implements OnInit {
         // console.log("haha")
       }
 
-      // if(data == "undefined"){
-      //   this.sessioncheck= false;
-      //   console.log("Rofl")
-      //   this._router.navigate(['/']);
-      // }
-      // else if (!data['data']['email'] && !data['data']['username'] && !data['data']['userid']){ //why does this work?
-      //   this.sessioncheck= false;
-      //   console.log("lol")
-      //   this._router.navigate(['/']);
-      // }
-      // else{
-      //   console.log("wow", data)
-      //   this.sessionData = data['data'];
-      //   this.sessioncheck= true;
-      //   this._router.navigate(['/dashboard']);
-      // } 
-
     })
   }
 }
