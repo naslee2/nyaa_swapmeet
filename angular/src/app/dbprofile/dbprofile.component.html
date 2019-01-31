@@ -1,11 +1,7 @@
 <div id="dbprofilepage">
 
     <div id="profile">
-        <div *ngFor="let x of figureData_img">
-            <img src="{{x}}" alt="figure_picture">  
-        </div>
-
-        <div *ngFor="let x of figureData">
+        <div class="profile_info" *ngFor="let x of figureData">
             <p><strong>Name:</strong> {{x['name']}}</p>
             <p><strong>Release Date: </strong> {{x['releasedate']}}</p>
             <p><strong>Announce Date:</strong> {{x['announcedate']}}</p>
@@ -21,6 +17,11 @@
             </div>
             <a [routerLink]="['/index']">Back</a>
         </div>
+
+        <div class="profile_img" *ngFor="let x of figureData_img">
+            <img src="{{x}}" alt="figure_picture">  
+        </div>
+        
     </div>
 
 </div>
