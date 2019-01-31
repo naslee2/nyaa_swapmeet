@@ -13,8 +13,19 @@
 }
 
 .profile_info{
-    width: 250px;
+    width: 300px;
     vertical-align: top;
+    display: inline-block;
+}
+.profile_info2{
+    width: 150px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.profile_info3{
+    height: 30px;
+    width:100px;
     display: inline-block;
 }
 
@@ -24,7 +35,12 @@
     display: inline-block;
 }
 
-img{
+.manuf_img{
+    height: 35px;
+    width: 120px;
+}
+
+.profile_imgbox{
     height: 300px;
     width: 300px;
     /* margin-left: 10px; */
