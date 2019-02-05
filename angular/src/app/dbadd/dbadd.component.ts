@@ -42,8 +42,6 @@ export class DbaddComponent implements OnInit {
   sessionChecker(){
     var check = this._httpService.checkSession();
     check.subscribe(data =>{
-      // console.log("sessioncheck",data);
-      // this.login();
       if (data){
         if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){ //why does this work?
           this.sessionData = data['data'];
@@ -71,7 +69,6 @@ export class DbaddComponent implements OnInit {
 
   addSubmit(){
     const files: Array<File> = this.filesToUpload;
-    // const thumb:Array<File> = this.filesToUpload2;
     console.log(files);
     // console.log(thumb);
     if(files.length > 0){
@@ -79,9 +76,6 @@ export class DbaddComponent implements OnInit {
         this.addForm.append( "upload", files[i], files[i]['name']);
       }
     }
-    // if(thumb.length > 0){
-    //   this.addForm.append("upload2", thumb[0], thumb[0]['name'])
-    // }
     for(let key in this.add){
       const value = this.add[key]
       this.addForm.append(key, value);

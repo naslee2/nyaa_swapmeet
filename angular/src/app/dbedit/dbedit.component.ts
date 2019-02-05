@@ -16,7 +16,6 @@ export class DbeditComponent implements OnInit {
   currency: any;
   filesToUpload: Array<File> = []
   addProfilePic: FormData = new FormData;
-  // objectkeys = Object.keys;
 
   constructor(
     private _route: ActivatedRoute,
@@ -64,12 +63,10 @@ export class DbeditComponent implements OnInit {
         }
         else{
           this.sessioncheck= false;
-          // this._router.navigate(['/db_profile', this.id.id]);
           this._router.navigate(['/']);
         }
       }
       else{
-        // console.log("else")
         this.sessioncheck= false;
         this._router.navigate(['/db_profile', this.id.id]);
       }
@@ -89,7 +86,6 @@ export class DbeditComponent implements OnInit {
         this.edit['releasedate'] = this.edit['releasedate'].slice(0,10);
         this.edit['announcedate'] = this.edit['announcedate'].slice(0,10);
       }
-      // console.log(this.edit)
     })
   }
 
@@ -122,7 +118,6 @@ export class DbeditComponent implements OnInit {
     let editFigure = this._httpService.editFigureData(this.edit);
     editFigure.subscribe(data => {
       if(data['message'] == 'success'){
-        // console.log("id",this.id)
         this._router.navigate(['/db_profile', this.id.id]);
       }
       else if (data['message'] == 'Error'){

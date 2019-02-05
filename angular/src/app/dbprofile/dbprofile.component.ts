@@ -44,13 +44,10 @@ export class DbprofileComponent implements OnInit {
   sessionChecker(){
     var check = this._httpService.checkSession();
     check.subscribe(data =>{
-      // console.log("sessioncheck",data);
-      // this.login();
       if (data){
         if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){ //why does this work?
           this.sessionData = data['data'];
           this.sessioncheck= true;
-          // this._router.navigate(['/databaseadd']);
         }
         else{
           this.sessioncheck= false;
@@ -61,5 +58,4 @@ export class DbprofileComponent implements OnInit {
       }
     })
   }
-
 }
