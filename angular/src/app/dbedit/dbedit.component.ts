@@ -79,7 +79,6 @@ export class DbeditComponent implements OnInit {
       if(data){
         this.edit = data['data'];
         this.currency.push(data['data']['currencytype'])
-        // console.log(this.currency)
       }
       
       if(this.edit['releasedate'].length > 9 && this.edit['announcedate'].length > 9){

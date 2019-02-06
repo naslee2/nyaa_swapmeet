@@ -46,7 +46,6 @@ export class DbaddComponent implements OnInit {
         if (data['data']['email'] && data['data']['username'] && data['data']['userid'] && data['data']['usertype'] == 2){ //why does this work?
           this.sessionData = data['data'];
           this.sessioncheck= true;
-          // this._router.navigate(['/databaseadd']);
         }
         else{
           this.sessioncheck= false;
@@ -70,7 +69,6 @@ export class DbaddComponent implements OnInit {
   addSubmit(){
     const files: Array<File> = this.filesToUpload;
     console.log(files);
-    // console.log(thumb);
     if(files.length > 0){
       for(let i =0; i < files.length; i++){
         this.addForm.append( "upload", files[i], files[i]['name']);
