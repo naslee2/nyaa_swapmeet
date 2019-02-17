@@ -1,7 +1,7 @@
-#userinfo{
-    padding-top: 50px;
+#dashboarddiv{
+    height: 100vh;
 }
 
-#dashboarddiv{
-    height: 100%;
+#userinfo{
+    padding-top: 50px;
 }

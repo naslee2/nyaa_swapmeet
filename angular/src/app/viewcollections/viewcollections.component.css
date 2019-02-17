@@ -1,4 +1,9 @@
-#collections{
-    padding-top: 50px;
+#collectionsdiv{
+    height: 100vh;
+
+}
+
+#collectionsdiv2{
     color: white;
+    padding-top: 50px;
 }
