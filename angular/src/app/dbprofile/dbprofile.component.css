@@ -12,6 +12,18 @@
     height: 100vh;
 }
 
+#infodiv strong{
+    color: goldenrod;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+#infodiv span{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
 .profile_info{
     width: 300px;
     vertical-align: top;
