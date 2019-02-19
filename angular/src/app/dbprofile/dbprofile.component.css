@@ -8,6 +8,13 @@
     box-sizing: border-box;
 }
 
+#profile2{
+    box-shadow: 0 0 5px 2px black;
+    border-radius: 20px;
+    background-color: #3d3d3d;
+    margin-top: 50px;
+}
+
 #dbprofilepage{
     height: 100vh;
 }
@@ -28,6 +35,8 @@
     width: 300px;
     vertical-align: top;
     display: inline-block;
+    
+    
 }
 .profile_info2{
     width: 150px;

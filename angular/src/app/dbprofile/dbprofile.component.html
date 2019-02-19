@@ -1,37 +1,38 @@
 <div id="dbprofilepage">
 
     <div id="profile">
-        <div class="profile_info" *ngFor="let x of figureData">
-            <div class="profile_info2">
-                <img class="manuf_img" src="../../assets/28023160.900000002_small-logo-0303166e18d9f5dfbd3b697d2be11c36.png" alt="manufacturer"> 
+        <div id="profile2">
+            <div class="profile_info" *ngFor="let x of figureData">
+                <div class="profile_info2">
+                    <img class="manuf_img" src="../../assets/28023160.900000002_small-logo-0303166e18d9f5dfbd3b697d2be11c36.png" alt="manufacturer"> 
+                </div>
+                <div class="profile_info3">
+                    <span>{{x['number']}}</span>
+                </div>
+                <div id="infodiv">
+                    <p><strong> {{x['name']}}</strong></p>
+                    <p><strong>Name:</strong> <span>{{x['name']}}</span></p>
+                    <p><strong>Release Date: </strong> <span>{{x['releasedate']}}</span></p>
+                    <p><strong>Announce Date:</strong> <span>{{x['announcedate']}}</span></p>
+                    <p><strong>Brand:</strong> <span>{{x['brand']}}</span></p>
+                    <p><strong>Series:</strong> <span>{{x['series']}}</span></p>
+                    <p><strong>Number:</strong> <span>{{x['number']}}</span></p>
+                    <p><strong>Manufacturer:</strong> <span>{{x['manufacturer']}}</span></p>
+                    <p><strong>Distributor:</strong> <span>{{x['distributor']}}</span></p>
+                    <p><strong>Release Price:</strong><span>{{x['currencytype']}} {{x['releaseprice']}}</span></p>
+                    <p><strong>Notes:</strong> <span>{{x['notes']}}</span></p>
+                </div>
+                
+                <div *ngIf="sessionData.usertype == 2">
+                    <a [routerLink]="['/db_edit', x._id]" >Edit</a>
+                </div>
+                <a [routerLink]="['/index']">Back</a>
             </div>
-            <div class="profile_info3">
-                <span>{{x['number']}}</span>
-            </div>
-            <div id="infodiv">
-                <p><strong> {{x['name']}}</strong></p>
-                <p><strong>Name:</strong> <span>{{x['name']}}</span></p>
-                <p><strong>Release Date: </strong> <span>{{x['releasedate']}}</span></p>
-                <p><strong>Announce Date:</strong> <span>{{x['announcedate']}}</span></p>
-                <p><strong>Brand:</strong> <span>{{x['brand']}}</span></p>
-                <p><strong>Series:</strong> <span>{{x['series']}}</span></p>
-                <p><strong>Number:</strong> <span>{{x['number']}}</span></p>
-                <p><strong>Manufacturer:</strong> <span>{{x['manufacturer']}}</span></p>
-                <p><strong>Distributor:</strong> <span>{{x['distributor']}}</span></p>
-                <p><strong>Release Price:</strong><span>{{x['currencytype']}} {{x['releaseprice']}}</span></p>
-                <p><strong>Notes:</strong> <span>{{x['notes']}}</span></p>
-            </div>
-            
-            <div *ngIf="sessionData.usertype == 2">
-                <a [routerLink]="['/db_edit', x._id]" >Edit</a>
-            </div>
-            <a [routerLink]="['/index']">Back</a>
-        </div>
 
-        <div class="profile_img" *ngFor="let x of figureData_img">
-            <img class="profile_imgbox" src="{{x}}" alt="figure_picture">  
+            <div class="profile_img" *ngFor="let x of figureData_img">
+                <img class="profile_imgbox" src="{{x}}" alt="figure_picture">  
+            </div>
         </div>
-
     </div>
 
 </div>
