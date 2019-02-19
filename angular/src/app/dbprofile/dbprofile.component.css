@@ -45,9 +45,12 @@
 }
 
 .profile_info3{
-    height: 30px;
+    height: 35px;
     width:100px;
+    font-size: 30px;
+    text-align: center;
     display: inline-block;
+    border-radius: 20px;
 }
 
 .profile_img{
