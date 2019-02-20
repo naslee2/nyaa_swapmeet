@@ -58,4 +58,8 @@ export class DbprofileComponent implements OnInit {
       }
     })
   }
+
+  selectImage(){
+    console.log("clicked!")
+  }
 }
