@@ -53,7 +53,14 @@
     border-radius: 20px;
 }
 
+.profile_image_selected{
+    vertical-align: top;
+    display: inline-block;
+    width: 500px;
+}
+
 .profile_img{
+    width: 550px;
     vertical-align: top;
     display: inline-block;
 }
