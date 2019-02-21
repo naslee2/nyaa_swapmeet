@@ -59,11 +59,10 @@
     width: 500px;
 }
 
-.profile_img{
-    width: 550px;
+/* .profile_img{
     vertical-align: top;
     display: inline-block;
-}
+} */
 
 .profile_image_list{
     vertical-align: top;
@@ -73,6 +72,11 @@
 .manuf_img{
     height: 35px;
     width: 120px;
+}
+
+.images{
+    vertical-align: top;
+    display: inline-block; 
 }
 
 .profile_imgbox{

@@ -28,12 +28,15 @@
                 </div>
                 <a [routerLink]="['/index']">Back</a>
             </div>
-            <div class="profile_img">
-                <img class ="profile_image_selected" src="{{figureData_img[0]}}" alt="picture">
+            <div class="images">
+                <div class="profile_img">
+                    <img class ="profile_image_selected" src="{{figureData_img[0]}}" alt="picture">
+                </div>
+                <div class="profile_image_list" *ngFor="let x of figureData_img">
+                    <a (click)="selectImage()"><img class="profile_imgbox" src="{{x}}" alt="figure_picture"></a>
+                </div>
             </div>
-            <div class="profile_image_list" *ngFor="let x of figureData_img">
-                <a (click)="selectImage()"><img class="profile_imgbox" src="{{x}}" alt="figure_picture"></a>
-            </div>
+            
         </div>
     </div>
 
