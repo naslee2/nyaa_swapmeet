@@ -11,6 +11,7 @@ export class DbprofileComponent implements OnInit {
   id: any;
   figureData: any;
   figureData_img: any;
+  img_select: any;
   sessionData: any;
   sessioncheck: any;
   constructor(
