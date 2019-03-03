@@ -29,6 +29,7 @@ export class DbprofileComponent implements OnInit {
     this.sessionData = {};
     this.figureData = [];
     this.figureData_img = [];
+    this.img_select = [];
     this.sessionChecker();
     this.getDetails();
   }
@@ -60,7 +61,8 @@ export class DbprofileComponent implements OnInit {
     })
   }
 
-  selectImage(){
-    console.log("clicked!")
+  selectImage(img){
+    console.log(img,"clicked!")
+    this.img_select = img;
   }
 }
