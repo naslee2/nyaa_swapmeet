@@ -62,7 +62,7 @@ export class DbprofileComponent implements OnInit {
   }
 
   selectImage(img){
-    console.log(img,"clicked!")
+    // console.log(img,"clicked!")
     this.img_select = img;
   }
 }
