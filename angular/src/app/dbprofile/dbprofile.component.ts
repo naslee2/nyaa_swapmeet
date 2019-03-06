@@ -10,7 +10,7 @@ import { HttpService } from '../http.service';
 export class DbprofileComponent implements OnInit {
   id: any;
   figureData: any;
-  figureData_img: any;
+  // figureData_img: any;
   img_select: any;
   sessionData: any;
   sessioncheck: any;
@@ -28,7 +28,7 @@ export class DbprofileComponent implements OnInit {
   ngOnInit() {
     this.sessionData = {};
     this.figureData = [];
-    this.figureData_img = [];
+    // this.figureData_img = [];
     this.img_select = [];
     this.sessionChecker();
     this.getDetails();
@@ -38,7 +38,8 @@ export class DbprofileComponent implements OnInit {
     let obs = this._httpService.getFigureProfile(this.id);
     obs.subscribe(data => {
       this.figureData.push(data['data']);
-      this.figureData_img = this.figureData[0]['pictures']
+      // this.figureData_img = this.figureData[0]['pictures']
+      this.img_select = this.figureData[0]['pictures']
       console.log(this.figureData);
     })
   }
