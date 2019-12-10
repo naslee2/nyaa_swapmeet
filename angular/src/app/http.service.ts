@@ -42,7 +42,7 @@ export class HttpService {
   }
 
   addFigure(add){
-    console.log("haha", add)
+    // console.log("haha", add)
     return this._http.post('/add', add);
   }
 
@@ -55,7 +55,7 @@ export class HttpService {
   }
 
   editFigureProfilePic(image, id){
-    console.log("image", image, id)
+    // console.log("image", image, id)
     return this._http.put('/editFigureProfilePic/'+id, image);
   }
 
